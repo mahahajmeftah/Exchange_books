@@ -1,0 +1,43 @@
+.book {
+  width: 200px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin: 10px;
+  float: left;
+}
+
+.book-image {
+  width: 100%;
+  height: auto;
+}
+
+.book-title {
+  text-align: center;
+  font-size: 1.2em;
+  padding: 4px;
+  background-color: white;
+  margin-top: 10px;
+  color: black;
+}
+
+.book-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+a:link { 
+  text-decoration: none; 
+} 
+a:visited { 
+  text-decoration: none; 
+} 
+a:hover { 
+  text-decoration: none; 
+} 
+a:active { 
+  text-decoration: none; 
+}

@@ -1,0 +1,55 @@
+.about-page {
+    font-family: 'Merriweather', serif;
+    background: url('C:\Users\HP\OneDrive\Desktop\S9\Html5\background-pic.jpeg') no-repeat center center fixed; 
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes the footer to the bottom */
+}
+
+.about-section {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+}
+
+.about-description {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+}
+
+h2 {
+    font-size: 2.5em;
+    color: #5D4037; /* Adjust the color to match your design */
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.find-book-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    background-color: #8C7B75; /* Cozy button color */
+    color: white;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .about-description {
+        padding: 10px;
+    }
+
+  
+}
