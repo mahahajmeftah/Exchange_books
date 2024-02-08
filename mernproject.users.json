@@ -1,0 +1,26 @@
+[{
+  "_id": {
+    "$oid": "65bc0b55bfe0dc55443197ff"
+  },
+  "name": "maha",
+  "email": "hajmeftahmaha@gmail.com",
+  "salt": "424695879603",
+  "hashed_password": "43b5e30f17f93f8533727b1ffcfc160de60d7434",
+  "created": {
+    "$date": "2024-02-01T21:21:25.593Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65bc0b75bfe0dc5544319800"
+  },
+  "name": "maha",
+  "email": "amine90aloui@gmail.com",
+  "salt": "785755378230",
+  "hashed_password": "9385ef420911cfce65b5e605fc9de0855e9f9010",
+  "created": {
+    "$date": "2024-02-01T21:21:57.602Z"
+  },
+  "__v": 0
+}]
