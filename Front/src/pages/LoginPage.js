@@ -1,131 +1,101 @@
-import React, { useEffect, useState } from 'react';
-import '../styles/LoginPage.css'; 
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../styles/LoginPage.css';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 
-import { useNavigate } from "react-router-dom";
-
-
 const LoginPage = (props) => {
-	
-	const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    const [emailError, setEmailError] = useState("")
-    const [passwordError, setPasswordError] = useState("")
-	
-	const onButtonClick = () => {
-		setEmailError("")
-        setPasswordError("")
-		
-		// checking if email is empty
-		if (email === "") {
-            setEmailError("Please enter your email")
-            return
+    const navigate = useNavigate();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [emailError, setEmailError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
+
+    const onButtonClick = () => {
+        setEmailError('');
+        setPasswordError('');
+
+        if (email === '') {
+            setEmailError('Please enter your email');
+            return;
         }
-		
-		// checking the email syntax with RegEx
-		if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
-			setEmailError("Please enter a valid email")
-			return
-		}
-		
-		// checking if password is empty
-		if (password === "") {
-			setPasswordError("Please enter a password")
-			return
-		}
-		
-		// Check if account exists (using the email)
-		checkValidAccount(validAccount => {
-            if (validAccount)
-                login()   
-        })    
-    }
-	
-	// check if account exists
-	const checkValidAccount = (callback) => { 
-        // TODO: Account Check API URL
-		fetch("ACCOUNT_CHECK_URL", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-              },
-            body: JSON.stringify({email})
-        })
-        .then(r => r.json())
-        .then(r => {
-            callback(r?.userExists) // checking if account exists or not, render true or false from API
-        })
-    }
 
-    // Log in a user using email and password
-    const login = () => {
-		// TODO: Authentication URL
-        fetch("AUTHENTICATION_URL", {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-              },
-            body: JSON.stringify({email, password})
-        })
-        .then(r => r.json())
-        .then(r => {
-            if ('success' === r.message) {
-                localStorage.setItem("user", JSON.stringify({email})) // save email in localstorage or cookie
-				//props for the app and NavBar
-                props.setLoggedIn(true) 
-                props.setEmail(email)
-                navigate("/profile") //change the navigation to either profile page or home page
-            } else {
-                window.alert("Wrong email or password")
+        if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
+            setEmailError('Please enter a valid email');
+            return;
+        }
+
+        if (password === '') {
+            setPasswordError('Please enter a password');
+            return;
+        }
+
+        checkValidAccount(validAccount => {
+            if (validAccount) {
+                login();
             }
-        })
-    }
-	
-	const navigate = useNavigate();
-	
-	return (
-	<div>
-		<Header />
-		<div className="mainDiv">
-			
-			<main>
-				<div className={"titleDiv"}>
-					Login
-				</div>
-				<br />
-				<div className={"inputDiv"}>
-				<input
-					value={email}
-					placeholder="Enter your email here"
-					onChange={ev => setEmail(ev.target.value)}
-					className={"inputBox"} />
-				<label className="errorLabel">{emailError}</label>
-				<br />
-				<div className={"inputDiv"}>
-					<input
-						value={password}
-						type="password"
-						placeholder="Enter your password here"
-						onChange={ev => setPassword(ev.target.value)}
-						className={"inputBox"} />
-					<label className="errorLabel">{passwordError}</label>
-				</div>
-				<br />
-				<div className={"inputDiv"}>
-					<input
-						className={"inputButton"}
-						type="button"
-						onClick={onButtonClick}
-						value={"Login"} />
-				</div>
+        });
+    };
 
-			</div>
-			</main>
-			<Footer />
-		</div>
-	</div>
-	);
+    const checkValidAccount = (callback) => {
+        // Simulate API call
+        setTimeout(() => {
+            callback(true); // Assume account is valid for demonstration
+        }, 1000);
+    };
+
+    const login = () => {
+        // Simulate successful login
+        setTimeout(() => {
+            localStorage.setItem('user', JSON.stringify({ email }));
+            props.setLoggedIn(true);
+            props.setEmail(email);
+            navigate('/profile'); // Navigate to profile page
+        }, 1000);
+    };
+    // Handle the form submit
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Add your login logic here
+        navigate('/dashboard'); // Redirect to dashboard after login
+    };
+
+    return (
+        <>
+            <Header /> {/* This will be full width at the top */}
+            <div className="loginPageContainer">
+                <div className="loginContainer">
+                    <h1 className="loginTitle">Welcome to BookBuddy</h1>
+                    <form className="loginForm" onSubmit={handleSubmit}>
+                        <div className="inputGroup">
+                            <input
+                                type="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                placeholder="Username or Email"
+                                className="loginInput"
+                            />
+                        </div>
+                        <div className="inputGroup">
+                            <input
+                                type="password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                placeholder="Password"
+                                className="loginInput"
+                            />
+                        </div>
+                        <button type="submit" className="signInButton">Login</button>
+                        <a href="#" className="forgotPassword">Forgot password?</a>
+                        <p className="signupPrompt">
+                            New to BookBuddy? <a href="#" className="signupLink">Create Account</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+            <Footer /> {/* This will be full width at the bottom */}
+        </>
+    );
 };
 
 export default LoginPage;
