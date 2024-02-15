@@ -26,6 +26,9 @@ const Header = (props) => {
             <li><Link to="/inventory">INVENTORY</Link></li>
             <li><Link to="/contact">CONTACT US</Link></li>
             <li><Link to="/books">MyBooks</Link></li>
+            <li><Link to="/users">Users</Link></li>
+            <li><Link to="/signup">Sign Up</Link></li>
+            
           </ul>
         </nav>
         <div className="social-media">

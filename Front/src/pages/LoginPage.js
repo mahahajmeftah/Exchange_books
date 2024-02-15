@@ -1,101 +1,86 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import '../styles/LoginPage.css';
+import {useState} from 'react';
+import {Navigate} from 'react-router-dom'
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import '../styles/LoginPage.css';
 
-const LoginPage = (props) => {
-    const navigate = useNavigate();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [emailError, setEmailError] = useState('');
-    const [passwordError, setPasswordError] = useState('');
+import auth from '../datas/auth/auth-helper.js'
+import {login} from '../datas/auth/auth-api.js'
+ function Login(props){
+  const [values, setValues] = useState({
+    email: '',
+    password: '',
+    error: '',
+    redirectToReferrer: false
+  });
 
-    const onButtonClick = () => {
-        setEmailError('');
-        setPasswordError('');
+  const { email, password } = values;
 
-        if (email === '') {
-            setEmailError('Please enter your email');
-            return;
-        }
+  const clickSubmit = () => {
+    const user = {
+      email: values.email || undefined,
+      password: values.password || undefined
+    };
 
-        if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
-            setEmailError('Please enter a valid email');
-            return;
-        }
-
-        if (password === '') {
-            setPasswordError('Please enter a password');
-            return;
-        }
-
-        checkValidAccount(validAccount => {
-            if (validAccount) {
-                login();
-            }
+    login(user).then((data) => {
+      if (data.error) {
+        setValues({ ...values, error: data.error });
+      } else {
+        auth.authenticate(data, () => {
+          setValues({ ...values, error: '', redirectToReferrer: true });
         });
-    };
+      }
+    });
+  };
 
-    const checkValidAccount = (callback) => {
-        // Simulate API call
-        setTimeout(() => {
-            callback(true); // Assume account is valid for demonstration
-        }, 1000);
-    };
-
-    const login = () => {
-        // Simulate successful login
-        setTimeout(() => {
-            localStorage.setItem('user', JSON.stringify({ email }));
-            props.setLoggedIn(true);
-            props.setEmail(email);
-            navigate('/profile'); // Navigate to profile page
-        }, 1000);
-    };
-    // Handle the form submit
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Add your login logic here
-        navigate('/dashboard'); // Redirect to dashboard after login
-    };
-
-    return (
-        <>
-            <Header /> {/* This will be full width at the top */}
-            <div className="loginPageContainer">
-                <div className="loginContainer">
-                    <h1 className="loginTitle">Welcome to BookBuddy</h1>
-                    <form className="loginForm" onSubmit={handleSubmit}>
-                        <div className="inputGroup">
-                            <input
-                                type="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                placeholder="Username or Email"
-                                className="loginInput"
-                            />
-                        </div>
-                        <div className="inputGroup">
-                            <input
-                                type="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                placeholder="Password"
-                                className="loginInput"
-                            />
-                        </div>
-                        <button type="submit" className="signInButton">Login</button>
-                        <a href="#" className="forgotPassword">Forgot password?</a>
+  const handleChange = (name) => (event) => {
+    setValues({ ...values, [name]: event.target.value });
+  };
+  const {from} = {
+    from: {
+      pathname: '/'
+    }
+}
+const {redirectToReferrer} = values
+if (redirectToReferrer) {
+    return (<Navigate to={from}/>)
+}
+ 
+  return (
+    <>
+      <Header />{/* This will be full width at the top */}
+      <div className="loginPageContainer">
+        <div className="loginContainer">
+      <h1 className="loginTitle">Welcome to BookBuddy</h1>
+      
+      <div className="inputGroup">
+      <input
+        type="email"
+        value={values.email}
+        onChange={handleChange('email')}
+        placeholder="user"
+        className="loginInput"
+      />
+      </div>
+      <div className="inputGroup">
+      <input
+        type="password"
+        value={values.password}
+        onChange={handleChange('password')}
+        placeholder="Password"
+        className="loginInput"
+      />
+      </div>
+      <button className="signInButton" onClick={clickSubmit}>Login</button>
+      <a href="#" className="forgotPassword">Forgot password?</a>
                         <p className="signupPrompt">
-                            New to BookBuddy? <a href="#" className="signupLink">Create Account</a>
+                            New to BookBuddy? <a href="/signup" className="signupLink">Create Account</a>
                         </p>
-                    </form>
-                </div>
-            </div>
-            <Footer /> {/* This will be full width at the bottom */}
-        </>
-    );
+      {/* This will be full width at the bottom */}
+      </div>
+      </div>
+      <Footer/>
+    </>
+  );
 };
-
-export default LoginPage;
+export default Login;

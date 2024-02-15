@@ -13,9 +13,9 @@
 },
 {
   "_id": {
-    "$oid": "65bc0b75bfe0dc5544319800"
+    "$oid": "65nc0b75bfe0dc5544319800"
   },
-  "name": "maha",
+  "name": "user1",
   "email": "amine90aloui@gmail.com",
   "salt": "785755378230",
   "hashed_password": "9385ef420911cfce65b5e605fc9de0855e9f9010",
@@ -23,4 +23,32 @@
     "$date": "2024-02-01T21:21:57.602Z"
   },
   "__v": 0
-}]
+},
+{
+  "_id": {
+    "$oid": "65ed0b55bfe0dc55443197ff"
+  },
+  "name": "user3",
+  "email": "hajmeftsahmaha@gmail.com",
+  "salt": "424695279603",
+  "hashed_password": "43b5e30f17f93f8533727b1ffcfc160de60d7434",
+  "created": {
+    "$date": "2024-02-01T21:11:25.593Z"
+  },
+  "__v": 0
+}
+,
+{
+  "_id": {
+    "$oid": "65ec0b55bfe0dc55443197ff"
+  },
+  "name": "user6",
+  "email": "hajmeftsahsmaha@gmail.com",
+  "salt": "424694279603",
+  "hashed_password": "43b5e30f17f93f8533727b1ffcfc160de60d7434",
+  "created": {
+    "$date": "2024-02-01T21:11:25.593Z"
+  },
+  "__v": 0
+}
+]
