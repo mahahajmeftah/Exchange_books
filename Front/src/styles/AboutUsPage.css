@@ -1,6 +1,6 @@
 .about-page {
     font-family: 'Merriweather', serif;
-    background: url('C:\Users\HP\OneDrive\Desktop\S9\Html5\background-pic.jpeg') no-repeat center center fixed; 
+   /* background: url('C:\Users\HP\OneDrive\Desktop\S9\Html5\background-pic.jpeg') no-repeat center center fixed;*/ 
     background-size: cover;
     height: 100vh;
     display: flex;

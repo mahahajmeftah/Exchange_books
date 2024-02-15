@@ -32,14 +32,11 @@ const UserSchema = new mongoose.Schema({
   }
 })
 
-UserSchema
-  .virtual('password')
-  .set(function(password) {
+UserSchema.virtual('password').set(function(password) {
     this._password = password
     this.salt = this.makeSalt()
     this.hashed_password = this.encryptPassword(password)
-  })
-  .get(function() {
+  }).get(function() {
     return this._password
   })
 
@@ -71,4 +68,7 @@ UserSchema.methods = {
     return Math.round((new Date().valueOf() * Math.random())) + ''
   }
 }
- export const  User= mongoose.model('User', UserSchema);
+
+export default mongoose.model('User', UserSchema)
+
+

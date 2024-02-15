@@ -1,0 +1,20 @@
+dialog{
+    border-radius: 10px;
+    border: none;
+}
+.dialogButton{
+   
+    padding: 5px 5px; /* Padding inside the button */
+    background-color: #D2B48C; /* A pleasant green color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block; /* Block level for full width */
+    text-align: center;
+     /* Centered with margin on the bottom */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    text-decoration:none;
+    
+}
