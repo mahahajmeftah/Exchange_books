@@ -13,8 +13,8 @@
 .header-content {
     display: flex;
     align-items: center;
-    width: 100%;
     justify-content: space-between;
+    width: 100%;
 }
 
 .logo {
@@ -22,38 +22,32 @@
     align-items: center;
 }
 
-    .logo h1 {
-        font-size: 24px; /* Adjust the font size for the title */
-        margin-right: 10px; /* Add some space between the title and the image */
-    }
-
-    .logo img {
-        width: 20px; /* Adjust the width for better visibility */
-    }
-
-.navigation ul {
-    list-style-type: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
+.logo h1 {
+    font-size: 24px; /* Adjust the font size for the title */
+    margin-right: 10px; /* Add some space between the title and the image */
 }
 
-    .navigation ul li {
-        padding: 0 10px; /* Reduced padding for better clickability */
-    }
+.logo img {
+    width: 20px; /* Adjust the width for better visibility */
+}
 
-        .navigation ul li a {
-            color: #f5f5f5;
-            text-decoration: none;
-            font-weight: 500; /* Less bold for a softer appearance */
-            font-size: 16px; /* Smaller font size for the header */
-            transition: color 0.3s ease; /* Smooth transition for hover effect */
-        }
 
-            .navigation ul li a:hover,
-            .navigation ul li a:focus {
-                color: #c5a467; /* Gold color for active links to add a cozy, bookish feel */
-            }
+.navigation ul li {
+    margin: 0 5px; /* Reduced padding for better clickability */
+}
+
+.navigation ul li a {
+    color: #f5f5f5;
+    text-decoration: none;
+    font-weight: 500; /* Less bold for a softer appearance */
+    font-size: 16px; /* Smaller font size for the header */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.navigation ul li a:hover,
+.navigation ul li a:focus {
+    color: #c5a467; /* Gold color for active links to add a cozy, bookish feel */
+}
 
 .social-media a {
     padding: 0 5px; /* Reduced padding for social media icons */
@@ -63,6 +57,51 @@
     width: 24px;
     height: 24px;
 }
+/* Add styles for button-like links */
+.button-link {
+    background-color: #3a3a3a;
+    color: #f5f5f5;
+    padding: 10px 20px;
+    border: 2px solid #c5a467;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #c5a467;
+    text-decoration: none;
+}
+
+/* Change the appearance on hover */
+.button-link:hover {
+    color: #3a3a3a; /* Text color on hover */
+    box-shadow: 0 0 15px #c5a467; /* Enhanced glow effect on hover */
+}
+
+/* Ensure the 'li' item aligns with flex items */
+.navigation ul li {
+    padding: 0 10px;/* Align vertically */
+    display: flex;
+    align-items: center;
+}
+.navigation ul {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-items: center; /* Align items vertically in the middle */
+}
+.auth-links {
+    display: flex;
+    align-items: center;
+}
+.nav-item {
+    color: #f5f5f5; /* Set the color for the text */
+    text-decoration: none; /* Remove underline from links */
+    padding: 10px 15px; /* Add some padding for spacing */
+    /* Any additional styles for your non-button links */
+}
+.auth-links > *:first-child {
+    margin-left: auto; /* Pushes .button-link and any other elements inside .auth-links to the right */
+}
+
+
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
@@ -76,9 +115,14 @@
         padding-top: 10px;
     }
 
-        .navigation ul li {
-            padding: 5px; /* Reduced padding for smaller screens */
-        }
+    .navigation ul li {
+        padding: 5px; /* Reduced padding for smaller screens */
+    }
+
+    .button-link {
+        padding: 5px 10px; /* Smaller padding on smaller screens */
+        font-size: 14px; /* Smaller font size for compact appearance */
+    }
 }
 
 

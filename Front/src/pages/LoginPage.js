@@ -1,12 +1,22 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {Navigate} from 'react-router-dom'
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import '../styles/LoginPage.css';
-
+import { useNavigate } from "react-router-dom";
 import auth from '../datas/auth/auth-helper.js'
 import {login} from '../datas/auth/auth-api.js'
  function Login(props){
+  
+  const navigate = useNavigate();
+
+  useEffect(() =>{
+    const jwt = JSON.parse(sessionStorage.getItem("jwt"));
+    if(jwt != undefined){
+      navigate("/");
+    }
+  }, []);
+  
   const [values, setValues] = useState({
     email: '',
     password: '',
@@ -41,6 +51,7 @@ import {login} from '../datas/auth/auth-api.js'
       pathname: '/'
     }
 }
+
 const {redirectToReferrer} = values
 if (redirectToReferrer) {
     return (<Navigate to={from}/>)
@@ -72,7 +83,7 @@ if (redirectToReferrer) {
               className="loginInput"
               />  
             </div>
-            <button className="signInButton" onClick={clickSubmit}>Login</button>
+            <button className="signInButton" onClick={clickSubmit}>SIGN IN</button>
             <a href="#" className="forgotPassword">Forgot password?</a>
             <p className="signupPrompt">
               New to BookBuddy? <a href="/signup" className="signupLink">Create Account</a> 
