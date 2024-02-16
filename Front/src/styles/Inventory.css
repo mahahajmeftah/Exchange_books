@@ -1,0 +1,160 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #f4f1ee; /* Beige background */
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box; /* Makes sure padding and borders are included in total width and height */
+}
+
+.inventory {
+    padding-bottom: 20px; /* Adds padding to the bottom for spacing */
+}
+
+.search-container {
+    position: relative;
+    max-width: 900px;
+    margin-left: auto; /* Set left and right margins to auto to center horizontally */
+    margin-right: 40px;
+    text-align: center; /* Center the text content (input and icon) within the container */
+}
+
+.search-input {
+    width: 400px; /* Adjust the width as needed */
+    display: inline-block; /* Change display to inline-block to center within the text-align center */
+    padding: 10px 35px 10px 20px;
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+
+.genre-selector {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center horizontally in the flex container */
+    align-items: center; /* Center vertically */
+    margin-bottom: 10px; /* Adds space below the selector */
+    margin-top: 10px;
+}
+
+.genre-selector select {
+    appearance: none;
+    padding: 10px 35px 10px 15px; /* Increased right padding for the icon */
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    background-color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s ease;
+    margin: 0 auto; 
+}
+
+.genre-selector .icon {
+    position: relative;
+    margin-left: -25px;
+    pointer-events: none; /* Makes sure clicks pass through to the select element */
+}
+
+.controls {
+    display: flex;
+    justify-content: space-around; /* Changed from space-between to space-around for even spacing */
+    padding: 20px 50px; /* Adjusted padding to create space around controls */
+    flex-wrap: wrap;
+    align-items: center; /* Align items vertically */
+    margin-top: 20px; /* Space below the header */
+}
+
+.books-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjust minmax() for desired card size */
+    gap: 20px; /* Space between books */
+    justify-content: center;
+    align-items: start; /* Aligns items at the start of the container */
+    padding: 0 20px; /* Horizontal padding; adjust as needed */
+    margin-bottom: 100px; /* Adds space above the footer */
+}
+
+.book {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.book-image {
+    width: 100%; /* or any other appropriate width */
+    height: auto; /* maintain aspect ratio */
+    object-fit: cover; /* if you want to cover the area without stretching */
+    /* other styles as needed */
+}
+
+.book-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.book-title {
+    font-size: 1em;
+    margin-bottom: 0.5em;
+}
+
+.book-category {
+    font-size: 0.8em;
+    color: #777;
+    margin-bottom: 1em;
+}
+
+.borrow-button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    outline: none;
+}
+
+.borrow-button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column; 
+        align-items: stretch; 
+        justify-content: center; 
+        text-align: center;
+    }
+    
+    .search-container {
+        margin-bottom: 20px;
+    }
+
+    .genre-selector select {
+        width: 100%; 
+        flex-basis: 100%;
+    }
+
+    .book {
+       
+    margin-bottom: 20px; /* Adds space between books on smaller screens */
+    }
+.footer {
+    margin-top: auto;
+    width: 100%; /* Ensure the footer is full width on smaller screens */
+}
+}

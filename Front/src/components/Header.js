@@ -21,12 +21,14 @@ const Header = (props) => {
         </div>
         <nav className="navigation">
           <ul>
-            <li><Link to="/">HOME</Link></li>
-            <li><Link to="/about">ABOUT US</Link></li>
-            <li><Link to="/inventory">INVENTORY</Link></li>
+            <li><Link to="/">Accueil</Link></li>
+            <li><Link to="/about">A propos</Link></li>
+            <li><Link to="/inventory">Emprunter un livre</Link></li>
             <li><Link to="/books">MyBooks</Link></li>
             <li><Link to="/users">Users</Link></li>
-            <li><Link to="/signup">Sign Up</Link></li>
+            <li><Link to="/signup">S'inscrire</Link></li>
+            <li><Link to="/login">Se connecter</Link></li>
+            <li><Link to="/profil">Mon profil</Link></li>
             
           </ul>
         </nav>
