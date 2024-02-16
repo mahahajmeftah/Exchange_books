@@ -8,11 +8,12 @@ import SearchBar from '../components/SearchBar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
-
 const Inventory = () => {
     const [books, setBooks] = useState([]);
     const [genre, setGenre] = useState('all');
     const [searchTerm, setSearchTerm] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
+    const [booksPerPage] = useState(10);
     const genres = [
         'all',
         'Literary Fiction',
@@ -49,22 +50,32 @@ const Inventory = () => {
                 }
                 
                 const response = await axios.get(`http://localhost:5555/api/books`, { params });
-                setBooks(response.data); // Assuming response.data is an array of book objects
+                setBooks(response.data);
             } catch (error) {
                 console.error('Error fetching books:', error);
             }
         };
 
         fetchBooks();
-    }, [genre, searchTerm]);
+    }, [genre, searchTerm, currentPage]); // Add currentPage to useEffect dependencies if fetching books per page from server
 
     const handleGenreChange = (event) => {
         setGenre(event.target.value);
+        setCurrentPage(1); // Reset to page 1 on genre change
     };
 
     const handleSearch = (term) => {
         setSearchTerm(term);
+        setCurrentPage(1); // Reset to page 1 on search
     };
+
+    // Pagination logic
+    const indexOfLastBook = currentPage * booksPerPage;
+    const indexOfFirstBook = indexOfLastBook - booksPerPage;
+    const currentBooks = books.slice(indexOfFirstBook, indexOfLastBook);
+
+    // Change page
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
         <div className="inventory">
@@ -85,10 +96,30 @@ const Inventory = () => {
                 </div>
             </div>
             <div className="books-container">
-                {books.map((book) => (
-                    <Book key={book._id} book={book} /> // Pass each book to the Book component
+                {currentBooks.map((book) => (
+                    <Book key={book._id} book={book} />
                 ))}
             </div>
+            <nav>
+    <ul className="pagination">
+        {Array.from({ length: Math.ceil(books.length / booksPerPage) }, (_, i) => i + 1).map(number => (
+            <li key={number} className="page-item">
+                <a 
+                    onClick={(e) => {
+                        e.preventDefault(); // Prevent the link from causing a page reload
+                        paginate(number);
+                    }} 
+                    href="#"
+                    className={`page-link ${currentPage === number ? 'page-link-active' : ''}`} // Apply active class conditionally
+                >
+                    {number}
+                </a>
+            </li>
+        ))}
+    </ul>
+</nav>
+
+
             <Footer />
         </div>
     );
