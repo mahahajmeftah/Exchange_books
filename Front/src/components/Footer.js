@@ -1,5 +1,8 @@
 import React from 'react';
 import '../styles/Footer.css'; // Make sure to create this CSS file and import it
+import AboutPage from '../pages/AboutUsPage';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Link } from 'react-router-dom'; // Import Link
 
 const Footer = () => {
 	
@@ -12,34 +15,13 @@ const Footer = () => {
     <footer className="site-footer">
       <div className="footer-container">
         <div className="footer-section">
-          <h4>ABOUT US</h4>
-          <ul>
-            <li>About Us</li>
-            <li>Contact</li>
-          </ul>
+          <p><Link to="/about">A propos</Link></p>
         </div>
         <div className="footer-section">
-          <h4>WHY BUY FROM US</h4>
-          <ul>
-            <li>Shipping & Returns</li>
-          </ul>
+          <p><Link to="/Signup">S'inscrire</Link></p>
         </div>
         <div className="footer-section">
-          <h4>MY ACCOUNT</h4>
-          <ul>
-            <li>My Account</li>
-            <li>My Cart</li>
-          </ul>
-        </div>
-        <div className="footer-section">
-          <h4>EMAIL SIGNUP</h4>
-          <div className="email-signup">
-            <input type="email" placeholder="Please, enter your e-mail" />
-			<button type="button" onClick={handleClick}>
-				Subscribe uwu
-			</button>
-			
-          </div>
+          <p><Link to="/login">Se connecter</Link></p>
         </div>
       </div>
       <div className="footer-bottom">

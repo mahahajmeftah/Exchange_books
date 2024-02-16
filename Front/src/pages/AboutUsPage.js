@@ -2,6 +2,9 @@ import React from 'react';
 import '../styles/AboutUsPage.css'; // Ajustez le chemin au besoin
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import {Link} from 'react-router-dom';
+import logoLinkedin from '../assets/logo_linkedin.png';
+
 
 const AboutPage = () => {
   return (
@@ -20,10 +23,24 @@ const AboutPage = () => {
           <p>
             Le projet BookBuddy a été créé par une équipe de trois étudiantes de Polytech Angers :
           </p><br/>
-            <strong>Faustine Guillou</strong><br/>
-            <strong>Aya Rhoumdane</strong><br/>
-            <strong>Maha Meftah</strong>
-          
+            <div>
+              <strong>Faustine Guillou</strong> 
+              <a href="https://www.linkedin.com/in/faustine-guillou" 
+              target="_blank" rel="noopener noreferrer">
+              <img src={logoLinkedin} alt="Logo Linkedin" style={{ width: '20px', height: '20px' }}/>
+              </a><br/></div>
+            <div>
+              <strong>Aya Rhoumdane</strong><a href="https://www.linkedin.com/in/aya-rhoumdane/" 
+              target="_blank" rel="noopener noreferrer">
+              <img src={logoLinkedin} alt="Logo Linkedin" style={{ width: '20px', height: '20px' }}/>
+              </a><br/>
+            </div>
+            <div>
+              <strong>Maha Hadj Meftah</strong><a href="https://www.linkedin.com/in/faustine-guillou" 
+              target="_blank" rel="noopener noreferrer">
+              <img src={logoLinkedin} alt="Logo Linkedin" style={{ width: '20px', height: '20px' }}/>
+              </a><br/>
+            </div>
         </div>
 
         <div className="project-context-section about-description">
