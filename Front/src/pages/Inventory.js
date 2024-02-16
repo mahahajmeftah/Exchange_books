@@ -1,5 +1,3 @@
-// components/Inventory.js
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/Inventory.css';
@@ -9,6 +7,7 @@ import Book from '../components/Book';
 import SearchBar from '../components/SearchBar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+
 
 const Inventory = () => {
     const [books, setBooks] = useState([]);
@@ -50,7 +49,7 @@ const Inventory = () => {
                 }
                 
                 const response = await axios.get(`http://localhost:5555/api/books`, { params });
-                setBooks(response.data);
+                setBooks(response.data); // Assuming response.data is an array of book objects
             } catch (error) {
                 console.error('Error fetching books:', error);
             }
@@ -58,7 +57,6 @@ const Inventory = () => {
 
         fetchBooks();
     }, [genre, searchTerm]);
-
 
     const handleGenreChange = (event) => {
         setGenre(event.target.value);
@@ -88,8 +86,7 @@ const Inventory = () => {
             </div>
             <div className="books-container">
                 {books.map((book) => (
-                    // Make sure `book` contains an `_id` and image data
-                    <Book key={book._id} book={book} />
+                    <Book key={book._id} book={book} /> // Pass each book to the Book component
                 ))}
             </div>
             <Footer />
