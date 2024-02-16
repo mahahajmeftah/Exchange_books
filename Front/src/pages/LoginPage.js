@@ -49,35 +49,37 @@ if (redirectToReferrer) {
   return (
     <>
       <Header />{/* This will be full width at the top */}
-      <div className="loginPageContainer">
-        <div className="loginContainer">
-      <h1 className="loginTitle">Welcome to BookBuddy</h1>
-      
-      <div className="inputGroup">
-      <input
-        type="email"
-        value={values.email}
-        onChange={handleChange('email')}
-        placeholder="user"
-        className="loginInput"
-      />
-      </div>
-      <div className="inputGroup">
-      <input
-        type="password"
-        value={values.password}
-        onChange={handleChange('password')}
-        placeholder="Password"
-        className="loginInput"
-      />
-      </div>
-      <button className="signInButton" onClick={clickSubmit}>Login</button>
-      <a href="#" className="forgotPassword">Forgot password?</a>
-                        <p className="signupPrompt">
-                            New to BookBuddy? <a href="/signup" className="signupLink">Create Account</a>
-                        </p>
-      {/* This will be full width at the bottom */}
-      </div>
+      <div className='loginBackground'>
+        <div className="loginPageContainer">
+          <div className="loginContainer">
+            <h1 className="loginTitle">Welcome to BookBuddy</h1>
+
+            <div className="inputGroup">
+              <input
+              type="email"
+              value={values.email}
+              onChange={handleChange('email')}
+              placeholder="user"
+              className="loginInput"
+              />
+            </div>
+            <div className="inputGroup">
+              <input
+              type="password"
+              value={values.password}
+              onChange={handleChange('password')}
+              placeholder="Password"
+              className="loginInput"
+              />  
+            </div>
+            <button className="signInButton" onClick={clickSubmit}>Login</button>
+            <a href="#" className="forgotPassword">Forgot password?</a>
+            <p className="signupPrompt">
+              New to BookBuddy? <a href="/signup" className="signupLink">Create Account</a> 
+            </p>
+            {/* This will be full width at the bottom */}
+          </div>
+        </div>
       </div>
       <Footer/>
     </>

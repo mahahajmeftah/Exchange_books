@@ -19,9 +19,10 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import WelcomePage from './pages/WelcomePage';
 import AboutUsPage from './pages/AboutUsPage'; // Ensure this path matches the location of your AboutUsPage component
 import LoginPage from './pages/LoginPage';
-import MyBooks from './pages/Book/MyBooksPage'
+//import MyBooks from './pages/Book/MyBooksPage'
 import Users from './pages/user/Users';
 import Signup from './pages/user/Signup';
+import Inventory from './pages/Inventory';
 
 function App() {
   console.log("app");
@@ -34,9 +35,10 @@ function App() {
         <Route path="/about" element={<AboutUsPage />} />
 		<Route path="/login" element={<LoginPage setLoggedIn={setLoggedIn} setEmail={setEmail}/>} />
     
-    <Route path="/books" element={<MyBooks/>}/> 
+    {/*<Route path="/books" element={<MyBooks/>}/> */}
     <Route path="/users" element={<Users/>}/>
     <Route path="/Signup" element={<Signup/>}/>
+    <Route path="/inventory" element={<Inventory/>}/>
 
         {/* Add other routes as necessary */}
       </Routes>
