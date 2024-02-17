@@ -134,7 +134,7 @@ body, html {
 
 .borrow-button:hover {
     background-color: #0056b3;
-
+}
 .pagination {
     display: flex;
     justify-content: center;
