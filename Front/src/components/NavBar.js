@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate, Link } from "react-router-dom";
 import '../styles/Header.css'
+import Profil from '../pages/Profil';
 
 const NavBar = (props) => {
 	var name = undefined;
@@ -15,12 +16,14 @@ const NavBar = (props) => {
 		<ul>
 			<li><Link to="/">HOME</Link></li>
             <li><Link to="/about">ABOUT US</Link></li>
-			
+			<li><Link to="/inventory">INVENTORY</Link></li>
+			<li><Link to="/profil">Mon Profil</Link></li>
 			<div className="auth-links">
 			{(name != undefined ? 
 			<>
-				<li><Link to="/inventory">INVENTORY</Link></li>
+				
 				<li><Link to="/" className="button-link">Welcome {name} To BookBuddy</Link></li>
+				<li><Link to="/profil">Mon Profil</Link></li>
 			</>	
 				:
 				<>

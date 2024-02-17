@@ -1,3 +1,19 @@
 .profil-page{
     background-color: #f8f8f8;
 }
+
+.user-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+a{
+    color : transparent;
+}
+
+.addBook{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

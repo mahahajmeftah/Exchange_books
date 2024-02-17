@@ -10,4 +10,8 @@ router.route('/api/books')
 router.route('/api/books/:bookId/image')
     .get(bookCtrl.getBookImage);
 
+router.route('/api/newbook')
+    .post(bookCtrl.newBook);
+
+
 export default router;

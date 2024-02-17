@@ -7,4 +7,8 @@ router.route('/api/users')
  .get(userCtrl.list)
  .post(userCtrl.create)
 
+ // Example of route setup in your Express router file
+router.get('/api/users/:userId', userCtrl.getUserDetails);
+
+
  export default router

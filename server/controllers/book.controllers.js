@@ -47,7 +47,43 @@ const getBookImage = async (req, res) => {
     }
 };
 
+const newBook = async (req, res) => {
+    const title = req.body.title;
+    const author = req.body.author;
+    const genre = req.body.genre;
+    const category = req.body.category;
+    const owner = req.body.owner;
+    const format = req.body.format;
+    const data = req.body.image.data;
+    const contentType = req.body.image.contentType;
+
+    const bookData = new Book({
+        title:title,
+        author:author,
+        genre:genre,
+        category:category,
+        owner:owner,
+        format:format,
+        data : data,
+        contentType : contentType,
+    })
+    
+    try {
+      
+      await bookData.save()
+      return res.status(200).json({
+        message: "Successfully signed up!"
+      })
+    } catch (err) {
+      return res.status(400).json({
+        error: errorHandler.getErrorMessage(err)
+      })
+    }
+};
+        
+
 export default {
     listBooks,
-    getBookImage // Export the new controller function
+    getBookImage,
+    newBook // Export the new controller function
 };

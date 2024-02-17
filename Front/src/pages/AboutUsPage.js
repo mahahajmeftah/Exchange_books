@@ -36,7 +36,7 @@ const AboutPage = () => {
               </a><br/>
             </div>
             <div>
-              <strong>Maha Hadj Meftah</strong><a href="https://www.linkedin.com/in/faustine-guillou" 
+              <strong>Maha Hadj Meftah</strong><a href="https://www.linkedin.com/in/maha-haj-meftah-02a0b5132?trk=contact-info" 
               target="_blank" rel="noopener noreferrer">
               <img src={logoLinkedin} alt="Logo Linkedin" style={{ width: '20px', height: '20px' }}/>
               </a><br/>
