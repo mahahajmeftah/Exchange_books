@@ -19,7 +19,9 @@ const Header = () => {
           <h1>BookBuddy</h1>
           {/* Logo can go here */}
         </div>
+
         <NavBar className="navigation"/>
+
         <div className="social-media">
           {/* Social media links can go here */}
         </div>

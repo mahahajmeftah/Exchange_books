@@ -2,24 +2,28 @@
     font-family: 'Merriweather', serif;
    /* background: url('C:\Users\HP\OneDrive\Desktop\S9\Html5\background-pic.jpeg') no-repeat center center fixed;*/ 
     background-size: cover;
-    height: 100vh;
+    /*height: 100vh;*/
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Pushes the footer to the bottom */
+
 }
 
 .about-section {
-    flex-grow: 1;
+    /*flex-grow: 1;*/
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
+    overflow: auto;
     padding: 15px;
 }
 
 .about-description {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
+    margin:20px;
     border-radius: 10px;
     max-width: 600px;
 }

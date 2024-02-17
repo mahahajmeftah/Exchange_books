@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import '../styles/Inventory.css'; // Ensure this is the correct path to your CSS file

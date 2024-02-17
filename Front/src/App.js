@@ -1,18 +1,3 @@
-/*import Banner from './components/Banner'
-import Cart from './components/Cart'
-import ShoppingList from './components/ShoppingList'
-
-function App() {
-	return (
-		<div>
-			<Banner />
-			<Cart />
-			<ShoppingList />
-		</div>
-	)
-}
-
-export default App*/
 // App.js
 import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -24,9 +9,9 @@ import Users from './pages/user/Users';
 import Signup from './pages/user/Signup';
 import Inventory from './pages/Inventory';
 import BorrowPage from './pages/BorrowPage'; // Path to your new BorrowPage component
+import Profil from './pages/Profil';
 
 function App() {
-  console.log("app");
   const [loggedIn, setLoggedIn] = useState(false); // Assuming default state is not logged in
   const [email, setEmail] = useState(""); // Initially, no email
   return (
@@ -37,9 +22,10 @@ function App() {
 		<Route path="/login" element={<LoginPage setLoggedIn={setLoggedIn} setEmail={setEmail}/>} />
     
     {/*<Route path="/books" element={<MyBooks/>}/> */}
+    <Route path="/inventory" element={<Inventory/>}/>
     <Route path="/users" element={<Users/>}/>
     <Route path="/Signup" element={<Signup/>}/>
-    <Route path="/inventory" element={<Inventory/>}/>
+    <Route path="/profil" element={<Profil/>}/>
     <Route path="/borrow/:bookId" element={<BorrowPage />} />
 
 
