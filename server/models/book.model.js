@@ -30,6 +30,7 @@ const BookSchema = new mongoose.Schema({
     type:Boolean,
     default: true
   },
+  description: String,
   created: {
     type: Date,
     default: Date.now

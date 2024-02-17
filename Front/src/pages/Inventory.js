@@ -7,6 +7,8 @@ import Book from '../components/Book';
 import SearchBar from '../components/SearchBar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+
 
 const Inventory = () => {
     const [books, setBooks] = useState([]);

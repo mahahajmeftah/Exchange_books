@@ -40,6 +40,18 @@ const list = async (req, res) => {
     })
     }
    }
-export  default{
-create,
-list} 
+   const getUserDetails = async (req, res) => {
+    try {
+        // Here, req.params.userId will be replaced by the actual ID from the URL
+        const user = await User.findById(req.params.userId, 'name email phone').exec();
+        if (!user) {
+            return res.status(404).json({ error: "User not found" });
+        }
+        res.json(user);
+    } catch (err) {
+        return res.status(400).json({ error: "Could not retrieve user" });
+    }
+};
+  // Export this function
+  export default { list, create, getUserDetails };
+

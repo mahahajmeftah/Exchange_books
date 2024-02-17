@@ -23,6 +23,7 @@ import LoginPage from './pages/LoginPage';
 import Users from './pages/user/Users';
 import Signup from './pages/user/Signup';
 import Inventory from './pages/Inventory';
+import BorrowPage from './pages/BorrowPage'; // Path to your new BorrowPage component
 
 function App() {
   console.log("app");
@@ -39,6 +40,8 @@ function App() {
     <Route path="/users" element={<Users/>}/>
     <Route path="/Signup" element={<Signup/>}/>
     <Route path="/inventory" element={<Inventory/>}/>
+    <Route path="/borrow/:bookId" element={<BorrowPage />} />
+
 
         {/* Add other routes as necessary */}
       </Routes>
