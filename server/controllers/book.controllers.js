@@ -21,7 +21,7 @@ const listBooks = async (req, res) => {
         }
 
         // Use the query object to filter books in the database
-        let books = await Book.find(query).select('title author genre image');
+        let books = await Book.find(query).select('title author genre image owner description');
 
         res.json(books);
     } catch (err) {

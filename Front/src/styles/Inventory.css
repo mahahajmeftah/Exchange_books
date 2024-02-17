@@ -121,14 +121,16 @@ body, html {
 }
 
 .borrow-button {
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
+    padding: 12px 30px;
     border: none;
-    border-radius: 20px;
+    border-radius: 50px; /* Use a large value for border-radius to make it round */
     cursor: pointer;
-    transition: background-color 0.3s;
-    outline: none;
+    font-size: 1em;
+    margin: 0 10px;
+    background-color: #D2B48C; /* Light brown background */
+    color: #fff; /* White text */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
 }
 
 .borrow-button:hover {
