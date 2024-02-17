@@ -4,9 +4,20 @@ import '../../styles/UsersPage.css';
 import '../../styles/Dialog.css';
 
 import {create} from '../../datas/user/user-api.js';
-import { useState} from 'react';
+import { useEffect, useState} from 'react';
+import { useNavigate } from "react-router-dom";
+
 function Signup() {
-    const [values, setValues] = useState({
+  
+  const navigate = useNavigate();
+  useEffect(() =>{
+    const jwt = JSON.parse(sessionStorage.getItem("jwt"));
+    if(jwt != undefined){
+      navigate("/");
+    }
+  }, []); 
+
+  const [values, setValues] = useState({
       name: '',
       password: '',
       email: '',
@@ -37,6 +48,7 @@ function Signup() {
     return (
         <>
           <Header />{/* This will be full width at the top */}
+          <div className='loginBackground'>
           <div className="loginPageContainer">
             <div className="loginContainer">
           <h1 className="loginTitle">Sign Up</h1>
@@ -68,6 +80,7 @@ function Signup() {
             
             </menu>
           </dialog>
+          </div>
           </div>
           <Footer/>
         </>

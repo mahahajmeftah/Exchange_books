@@ -10,6 +10,7 @@ import { PORT,mongDBURL } from "./config.js";
 import userRoutes from './routes/user.routes.js'
 import authRoutes from './routes/auth.routes.js'
 import bookRoutes from './routes/book.routes.js'
+
 // mount routes
 
 const app = express(); 
@@ -26,6 +27,7 @@ app.use(cors({credentials:true,origin:'http://localhost:3000'}))
 app.use('/', userRoutes)
 app.use('/', authRoutes)
 app.use('/', bookRoutes)
+
 
 
 app.listen(PORT,()=>{

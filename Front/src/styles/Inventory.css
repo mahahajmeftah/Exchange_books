@@ -76,30 +76,32 @@ body, html {
 
 .books-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjust minmax() for desired card size */
-    gap: 20px; /* Space between books */
-    justify-content: center;
-    align-items: start; /* Aligns items at the start of the container */
-    padding: 0 20px; /* Horizontal padding; adjust as needed */
-    margin-bottom: 100px; /* Adds space above the footer */
+
+    /* Use 1fr for flexible sizing but with a max-width to control book size */
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 40px; /* Adjust the gap for spacing between books */
+    padding: 20px; /* Adds padding around the grid */
+    margin: auto; /* Center the container if it's not full width */
+    max-width: 1000px; /* Adjust based on your layout's maximum width */
 }
 
+
 .book {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: #fff;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    justify-content: space-between;
+    /* Optional: Set a max-height if you want to limit the book's height */
 }
 
 .book-image {
-    width: 100%; /* or any other appropriate width */
-    height: auto; /* maintain aspect ratio */
-    object-fit: cover; /* if you want to cover the area without stretching */
-    /* other styles as needed */
+    width: 100%; /* Ensure the image fills the container width */
+    height: 200px; /* Set a fixed height for uniformity */
+    object-fit: cover; /* Cover the area, may crop images */
 }
+
+
+
+
 
 .book-info {
     padding: 15px;
@@ -130,7 +132,47 @@ body, html {
 
 .borrow-button:hover {
     background-color: #0056b3;
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    list-style: none;
 }
+
+.page-item {
+    margin: 0 10px;
+}
+
+.page-link {
+    text-decoration: none;
+    color: #896316;
+}
+
+/* Style for normal and visited links */
+.page-link, .page-link:visited {
+    color: #9d7609; /* Example: Change to your preferred link color */
+    text-decoration: none; /* Removes underline from all links */
+}
+
+/* Style for the active (current) page link */
+.page-link-active, .page-link-active:visited {
+    text-decoration: underline;
+    font-weight: bold;
+    color: #9d7609; /* Slightly darker blue for contrast; adjust as needed */
+}
+
+/* Optional: Add hover and active states for better user experience */
+.page-link:hover, .page-link-active:hover {
+    text-decoration: underline; /* Underline on hover for better visibility */
+    color: #9d7609; /* Change color on hover */
+}
+
+.page-link:active, .page-link-active:active {
+    color: #9d7609; /* Change color when the link is actively being clicked */
+}
+
+
 
 @media (max-width: 768px) {
     .controls {
@@ -153,8 +195,32 @@ body, html {
        
     margin-bottom: 20px; /* Adds space between books on smaller screens */
     }
+
+    .books-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 books per line */
+    }
+
 .footer {
     margin-top: auto;
     width: 100%; /* Ensure the footer is full width on smaller screens */
 }
+
 }
+@media (max-width: 1024px) {
+    .books-container {
+        grid-template-columns: repeat(3, minmax(0, 1fr)); /* Adjust for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .books-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr)); /* Adjust for small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .books-container {
+        grid-template-columns: repeat(1, 1fr); /* 1 book per line for very small screens */
+    }
+}
+

@@ -1,27 +1,36 @@
 import React from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import '../styles/Header.css'
 
 const NavBar = (props) => {
-	const { loggedIn, email } = props
-	
-	const navigate = useNavigate();
-	
-	const onButtonClick = () => {
-		
-    }
-	
+	var name = undefined;
+
+	const jwt = JSON.parse(sessionStorage.getItem("jwt"));
+	if(jwt != undefined){
+		name = jwt.user.name;
+	}
+
 	return (
-	<nav>
+	<nav className="navigation">
 		<ul>
-			{(loggedIn ? <li><a className="button" href="/profile">Welcome {email}</a></li>
-				: 	<div>
-						<li><a className="button" href="/login">Login</a></li>
-						<li>Register</li>
-					</div>
+			<li><Link to="/">HOME</Link></li>
+            <li><Link to="/about">ABOUT US</Link></li>
+			
+			<div className="auth-links">
+			{(name != undefined ? 
+			<>
+				<li><Link to="/inventory">INVENTORY</Link></li>
+				<li><Link to="/" className="button-link">Welcome {name} To BookBuddy</Link></li>
+			</>	
+				:
+				<>
+				<li><Link to="/login"className="button-link">SIGN IN </Link></li>
+				</>	
 			)}
-			<li>Forum</li>
-			<li>Library</li>
+			</div>
 		</ul>
+		
+		
 	</nav>
 	);
 }

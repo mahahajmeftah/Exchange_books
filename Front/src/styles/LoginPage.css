@@ -48,7 +48,7 @@ input[type="button"] {
     cursor: pointer;
 }
 
-body, html {
+.loginBackground {
     margin: 0;
     padding: 0;
     height: 100%;

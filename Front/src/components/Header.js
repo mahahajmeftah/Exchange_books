@@ -10,8 +10,8 @@ import NavBar from '../components/NavBar';
 
 import { Link } from 'react-router-dom'; // Import Link
 
-const Header = (props) => {
-    const { loggedIn, email } = props
+const Header = () => {
+
   return (
     <header className="site-header">
       <div className="header-content">
@@ -19,19 +19,9 @@ const Header = (props) => {
           <h1>BookBuddy</h1>
           {/* Logo can go here */}
         </div>
-        <nav className="navigation">
-          <ul>
-            <li><Link to="/">Accueil</Link></li>
-            <li><Link to="/about">A propos</Link></li>
-            <li><Link to="/inventory">Emprunter un livre</Link></li>
-            <li><Link to="/books">MyBooks</Link></li>
-            <li><Link to="/users">Users</Link></li>
-            <li><Link to="/signup">S'inscrire</Link></li>
-            <li><Link to="/login">Se connecter</Link></li>
-            <li><Link to="/profil">Mon profil</Link></li>
-            
-          </ul>
-        </nav>
+
+        <NavBar className="navigation"/>
+
         <div className="social-media">
           {/* Social media links can go here */}
         </div>
