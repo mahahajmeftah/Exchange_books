@@ -1,7 +1,9 @@
+
 import React from 'react';
 import '../styles/Inventory.css'; // Ensure this is the correct path to your CSS file
 
 const Book = ({ book, onBorrow }) => {
+
     
     const base64String= String.fromCharCode(...new Uint8Array(book.image.data.data));
     const contentType = book.image.contentType;
@@ -18,4 +20,6 @@ const Book = ({ book, onBorrow }) => {
     );
   };
   
+
   export default Book;
+
