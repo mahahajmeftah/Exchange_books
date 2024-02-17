@@ -21,7 +21,7 @@ const listBooks = async (req, res) => {
         }
 
         // Use the query object to filter books in the database
-        let books = await Book.find(query).select('title author genre image');
+        let books = await Book.find(query).select('title author genre image owner description');
 
         res.json(books);
     } catch (err) {
@@ -46,8 +46,28 @@ const getBookImage = async (req, res) => {
         });
     }
 };
+// Controller function to get a single book by ID with owner details
+const getBookById = async (req, res) => {
+    try {
+      const book = await Book.findById(req.params.bookId)
+        .populate('owner')
+        .exec();
+  
+      if (!book) {
+        return res.status(404).json({ message: "Book not found" });
+      }
+      res.json(book);
+  
+    } catch (err) {
+      res.status(500).json({
+        error: errorHandler.getErrorMessage(err)
+      });
+    }
+  };
+  
 
 export default {
     listBooks,
-    getBookImage // Export the new controller function
+    getBookImage,
+    getBookById // Export the new controller function
 };

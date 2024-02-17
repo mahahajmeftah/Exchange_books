@@ -8,6 +8,7 @@ import LoginPage from './pages/LoginPage';
 import Users from './pages/user/Users';
 import Signup from './pages/user/Signup';
 import Inventory from './pages/Inventory';
+import BorrowPage from './pages/BorrowPage'; // Path to your new BorrowPage component
 import Profil from './pages/Profil';
 
 function App() {
@@ -25,6 +26,8 @@ function App() {
     <Route path="/users" element={<Users/>}/>
     <Route path="/Signup" element={<Signup/>}/>
     <Route path="/profil" element={<Profil/>}/>
+    <Route path="/borrow/:bookId" element={<BorrowPage />} />
+
 
         {/* Add other routes as necessary */}
       </Routes>
