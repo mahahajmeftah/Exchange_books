@@ -19,9 +19,12 @@ const AddBook = () => {
     const [category, setCategory] = useState('Roman');
     const [format, setFormat] = useState('Broché');
     const [imageForm, setImage] = useState('');
+    const [description, setDescription] = useState('');
     const [titleError, setTitleError] = useState("")
     const [authorError, setAuthorError] = useState("")
     const [imageError, setImageError] = useState("")
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -103,7 +106,7 @@ const AddBook = () => {
             headers: {
                 'Content-Type': 'application/json'
               },
-            body: JSON.stringify({title, author, genre, category, owner, format, image: { data, contentType }})
+            body: JSON.stringify({title, author, genre, category, owner, format, image: { data, contentType }, description})
         })
         .then(r => r.json())
         .then(r => {
@@ -167,6 +170,14 @@ const AddBook = () => {
                 <option value="Relié">Relié</option>
                 {/* Ajoutez d'autres options de format au besoin */}
                 </select>
+            </label>
+            <label>
+                Description:
+                <textarea className='textarea'
+                value={description}
+                onChange={(event) => setDescription(event.target.value)}
+                placeholder="Ajouter une description du livre"
+                />
             </label>
 
             <label className="label labelinput">
