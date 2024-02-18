@@ -8,6 +8,13 @@ import { useEffect, useState} from 'react';
 import { useNavigate } from "react-router-dom";
 
 function Signup() {
+
+  const [emailError, setEmailError] = useState("")
+	const [phoneError, setPhoneError] = useState("")
+  const [passwordError, setPasswordError] = useState("")
+	const [nameError, setNameError] = useState("")
+  const frenchPhoneNumberRegex = /^(?:(?:(?:\+|00)33[\s\.-]?)?(?:\d{1,2}[\s\.-]?)?(?:\(0\)[\s\.-]?)?)?(?:(?:(?:\d{2}[\s\.-]?)?\d{2}[\s\.-]?)?\d{2}[\s\.-]?\d{2}[\s\.-]?\d{2})$/;
+	
   
   const navigate = useNavigate();
   useEffect(() =>{
@@ -29,8 +36,98 @@ function Signup() {
     const handleChange = name => event => {
       setValues({ ...values, [name]: event.target.value })
     }
+
+    const validateForm = () => {
+      const errors = [];
+    
+      if (values.email === "") {
+        errors.push("Veuillez entrer une adresse email");
+        setEmailError("Veuillez entrer une adresse email")
+      }
+    
+      if (values.name === "") {
+        errors.push("Veuillez entrez votre prénom");
+        setNameError("Veuillez entrez votre prénom")
+      }
+    
+      if (values.phone === "") {
+        errors.push("Veuillez entrez votre numéro de téléphone");
+        setPhoneError("Veuillez entrez votre numéro de téléphone");
+      }
+    
+      if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(values.email)) {
+        errors.push("Veuillez entrer une adresse email valide");
+        setEmailError("Veuillez entrer une adresse email valide");
+      }
+    
+      if (!frenchPhoneNumberRegex.test(values.phone)) {
+        errors.push("Veuillez entrer un numéro de téléphone valide contenant 10 chiffres");
+        setPhoneError("Veuillez entrer un numéro de téléphone valide contenant 10 chiffres")
+      
+      }
+    
+      // Checking if password is empty
+      if (values.password === "") {
+        errors.push("Veuillez entrer un mot de passe");
+        setPasswordError("Veuillez entrer un mot de passe");
+      }
+    
+      // Mettre à jour l'état des erreurs
+      //setAllErrors(errors);
+    
+      // Si la longueur du tableau d'erreurs est supérieure à zéro, cela signifie qu'il y a des erreurs
+      return errors.length === 0;
+    };
   
     const clickSubmit = () => {
+      
+      // Utilisez cette fonction pour valider le formulaire
+      const isFormValid = validateForm();
+      
+      // Si le formulaire est valide, envoyez les données vers le back-end
+      if (!isFormValid) {
+        // Si le formulaire n'est pas valide, ne pas continuer
+        console.log("Le formulaire n'est pas valide, ne pas envoyer les données vers le back-end.");
+        return;
+      }
+    
+      /*setEmailError("")
+      setPasswordError("")
+		  setPhoneError("")
+		
+		// checking if email is empty
+		if (values.email === "") {
+            setEmailError("Veuillez entrer une adresse email")
+            return
+        }
+
+		if (values.name === "") {
+            setNameError("Veuillez entrez votre prénom")
+            return
+        }
+
+		if (values.phone === "") {
+            setPhoneError("Veuillez entrez votre numéro de téléphone")
+            return
+        }
+
+    if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(values.email)) {
+          setEmailError("Veuillez entrer une adresse email valide")
+          return
+    }
+    
+    if (!frenchPhoneNumberRegex.test(values.phone)) {
+      setPhoneError("Veuillez entrer un numéro de téléphone valide contenant 10 chiffres")
+      return
+    }
+        
+        // checking if password is empty
+    if (values.password === "") {
+      setPasswordError("Please enter a password")
+      return
+    }*/
+
+
       const user = {
         name: values.name || undefined,
         email: values.email || undefined,
@@ -54,15 +151,19 @@ function Signup() {
           <h1 className="loginTitle">Sign Up</h1>
           <div className="inputGroup">
           <input type="name" value={values.name} onChange={handleChange('name')} placeholder="Name" className="loginInput"/>
+          <label className="errorLabel">{nameError}</label>
           </div>
           <div className="inputGroup">
           <input type="email" value={values.email} onChange={handleChange('email')} placeholder="Email" className="loginInput"/>
+          <label className="errorLabel">{emailError}</label>
           </div>
           <div className="inputGroup">
           <input type="phone" value={values.phone} onChange={handleChange('phone')} placeholder="Phone" className="loginInput"/>
+          <label className="errorLabel">{phoneError}</label>
           </div>
           <div className="inputGroup">
           <input type="password" value={values.password} onChange={handleChange('password')} placeholder="Password" className="loginInput"/>
+          <label className="errorLabel">{passwordError}</label>
           </div>
           <button className="signInButton" onClick={clickSubmit}>Signup</button>
           <a href="#" className="forgotPassword">have account allready ?</a>
