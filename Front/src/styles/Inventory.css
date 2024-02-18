@@ -28,6 +28,16 @@ body, html {
     font-size: 16px;
     outline: none;
 }
+.page-title {
+    margin-top: 0; /* Remove default margin from h1 */
+    color: #555555;
+}
+.title-container {
+    text-align: center;
+    margin-bottom: 10px; /* Adjust margin bottom as needed */
+    margin-top: 25px;
+}
+
 
 .search-icon {
     position: absolute;
