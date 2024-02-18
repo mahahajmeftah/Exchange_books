@@ -52,6 +52,7 @@ const list = async (req, res) => {
         return res.status(400).json({ error: "Could not retrieve user" });
     }
 };
+
 const updateUserDetails = async (req, res) => {
   try{
     const user = await User.findOneAndUpdate({ _id: req.params.userId}, req.body).select("name email phone");

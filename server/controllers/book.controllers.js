@@ -46,6 +46,25 @@ const getBookImage = async (req, res) => {
         });
     }
 };
+// Controller function to get a single book by ID with owner details
+const getBookById = async (req, res) => {
+    try {
+      const book = await Book.findById(req.params.bookId)
+        .populate('owner')
+        .exec();
+  
+      if (!book) {
+        return res.status(404).json({ message: "Book not found" });
+      }
+      res.json(book);
+  
+    } catch (err) {
+      res.status(500).json({
+        error: errorHandler.getErrorMessage(err)
+      });
+    }
+  };
+  
 
 const newBook = async (req, res) => {
     const title = req.body.title;
@@ -84,5 +103,6 @@ const newBook = async (req, res) => {
 export default {
     listBooks,
     getBookImage,
-    newBook 
+    newBook, 
+    getBookById // Export the new controller function
 };
