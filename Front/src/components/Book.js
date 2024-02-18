@@ -5,7 +5,7 @@ import '../styles/Inventory.css'; // Ensure this is the correct path to your CSS
 
 const Book = ({ book }) => {
     const navigate = useNavigate(); // Use the useNavigate hook
-
+    console.log("book", book);
     const base64String = String.fromCharCode(...new Uint8Array(book.image.data.data));
     const contentType = book.image.contentType;
     
