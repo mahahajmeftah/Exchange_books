@@ -124,15 +124,36 @@ h1 {
         background-color: #C0A080;
     }
 
-.about-image {
-    flex-basis: 40%;
-}
 
-.about-image img {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-}
+.image-gallery {
+    display: flex;
+    overflow-x: auto;
+    }
+    
+    .image-gallery::-webkit-scrollbar {
+    display: none; /* Hides scrollbar for Chrome, Safari, and Opera */
+    }
+    
+    .about-image {
+    flex: 0 0 auto; /* Prevent flex items from growing or shrinking */
+    width: 500px; /* Set a specific width for the image container */
+    margin-right: 20px; /* Space between images */
+    display: flex; /* Enables centering of the image vertically and horizontally */
+    justify-content: center; /* Center image horizontally */
+    align-items: center; /* Center image vertically */
+    height: 500px; /* Set a specific height for the image container */
+    overflow: hidden; /* Ensures images larger than the container are cropped */
+    }
+    
+    .about-image img {
+    width: 100%; /* Image will fill the container width */
+    height: 100%; /* Image will fill the container height */
+    object-fit: cover; /* Ensures image covers the container, cropping as necessary without distortion */
+    }
+    
+  
+  
+
 
 /* Footer styles */
 /* Add your existing footer styles here */
