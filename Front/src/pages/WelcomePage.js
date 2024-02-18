@@ -52,7 +52,7 @@ const WelcomePage = (props) => {
             </Link>
           </div>
           <div className="about-image">
-            <img src={require("../assets/logo.png")} alt="test1" />
+            <img src={require("../assets/angerbibli.png")} alt="test1" />
           </div>
         </div>
       </div>
