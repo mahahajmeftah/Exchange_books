@@ -13,6 +13,11 @@ const WelcomePage = (props) => {
     const onSignUpClick = () => {	
       navigate('/Signup');
    }
+   var name = undefined;
+    const jwt = JSON.parse(sessionStorage.getItem("jwt"));
+    if(jwt != undefined){
+      name = jwt.user.name;
+    }
   return (
     <div className="welcome-page">
       <Header />
@@ -20,10 +25,19 @@ const WelcomePage = (props) => {
         <div className="welcome-content">
           <h1>Welcome to BookBuddy</h1>
           <p className="description">BookBuddy is a dynamic book-sharing platform where users can upload, exchange, and discuss their favorite books. It allows users to upload books in PDF or physical formats, set locations for easy exchanges, create book forums, and engage in a vibrant community-driven space with reviews, ratings, and direct messaging.</p>
-          <div className="buttons">
-            <button className="login-button" onClick={onLoginClick} >SIGN IN</button>
-            <button className="signup-button"onClick={onSignUpClick} >SIGN Up</button>
+          {(name != undefined ? 
+          <>
+            
+          </>	
+            :
+            <>
+            <div className="buttons">
+              <button className="login-button" onClick={onLoginClick} >SIGN IN</button>
+              <button className="signup-button"onClick={onSignUpClick} >SIGN Up</button>
           </div>
+            </>	
+          )}
+          
         </div>
       </div>
       <div className="about-section">
