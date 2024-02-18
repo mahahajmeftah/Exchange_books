@@ -23,6 +23,7 @@ app.use(compress())
 // secure apps by setting various HTTP headers
 app.use(helmet())
 app.use(cors({credentials:true,origin:'http://localhost:3000'}))
+app.use(bodyParser.urlencoded({ extended: true, limit: '50mb', }))
 
 app.use('/', userRoutes)
 app.use('/', authRoutes)

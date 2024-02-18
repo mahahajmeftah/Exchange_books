@@ -94,8 +94,10 @@ const AddBook = () => {
     const addNewBook = async () => {
         await fetchImage();
         const owner= sessionStorage.getItem('userId');
+        // Utilisez userId comme nécessaire
         console.log("addbook 1", {title, author, genre, category, owner, format, image: { data, contentType }});
 		// TODO: AddBook URL
+        
         fetch("http://127.0.0.1:5555/api/newbook", {
             method: "POST",
             headers: {

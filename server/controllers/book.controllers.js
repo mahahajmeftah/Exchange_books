@@ -77,6 +77,7 @@ const newBook = async (req, res) => {
     const format = req.body.format;
     const data = req.body.image.data;
     const contentType = req.body.image.contentType;
+    const description = "description"
 
     const bookData = new Book({
         title:title,
@@ -87,6 +88,7 @@ const newBook = async (req, res) => {
         format:format,
         data : data,
         contentType : contentType,
+        description : description
     })
     
     try {
