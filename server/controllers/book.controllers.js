@@ -21,7 +21,9 @@ const listBooks = async (req, res) => {
         }
 
         // Use the query object to filter books in the database
-        let books = await Book.find(query).select('title author genre image owner description');
+
+        let books = await Book.find(query).select('title author owner _id name genre image description');
+
 
         res.json(books);
     } catch (err) {
@@ -100,9 +102,26 @@ const newBook = async (req, res) => {
     }
 };
 
+
+const listByOwner = async (req, res) => {
+    try {
+      const userId = req.params.userId; // Extract userId from request parameters
+      const books = await Book.find({ owner: userId }).populate('owner', '_id name');
+      if (books.length === 0) {
+        return res.status(404).json({ error: 'No books found for the specified user' });
+      }
+      res.json(books);
+    } catch (err) {
+      console.error('Error in listByOwner:', err);
+      return res.status(500).json({ error: 'An unexpected error occurred' });
+    }
+  };
+
+
 export default {
     listBooks,
     getBookImage,
-    newBook, 
+    listByOwner,
+    newBook,
     getBookById // Export the new controller function
 };

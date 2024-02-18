@@ -22,5 +22,21 @@ const BookList = () => {
 			</ul>
 		</div>)
 };
+const listByOwner = async (params, signal) => {
+	try {
+	let response = await fetch('http://localhost:5555/api/books/by/'+params.userId, {
+	method: 'GET',
+	signal: signal,
+	headers: {
+	'Accept': 'application/json',
+	}
+	})
+	return response.json()
 
-// export default BookList;
+	} catch(err){
+	console.log(err)
+	}
+   }
+   
+
+ export default listByOwner;

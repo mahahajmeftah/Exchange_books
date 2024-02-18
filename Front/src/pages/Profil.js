@@ -86,8 +86,23 @@ const Profil = ({ utilisateur, livres }) => {
                         </Link>
                     </div>
                 </div>
+                
+              {
+                <>
+              <div className="books-container">
+              <h2>Votre liste de livres :</h2>
+                {books.map((book) => (
+                    // Make sure `book` contains an `_id` and image data
+                    <Book key={book._id} book={book} />
+                ))}
+                </div>
+                <h2>Ajouter un livre</h2>
+                <AjoutLivreForm />
+                </>
+                }
                 <Footer />
             </div>
+              
     );
 };
 
