@@ -13,8 +13,9 @@
 }
 
 .mybookHeader{
-    align-self: center;
-    margin-top: 0; /* Remove default margin from h1 */
-    color: #555555;
-    font-family: 'Arial', sans-serif;
+    text-align: center;
+    color: #5D4037;
+    margin-bottom: 20px; /* Add space below the title */
+    font-family: 'Merriweather', serif;
+    font-size: 50px;
 }

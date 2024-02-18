@@ -34,7 +34,7 @@
   box-sizing: border-box; /* Ensure padding doesn't affect width */
 }
 
-.button {
+.form1 button {
     padding: 12px 30px;
     border: none;
     border-radius: 50px; /* Use a large value for border-radius to make it round */
@@ -47,6 +47,9 @@
     transition: background-color 0.3s ease;
     margin-top: 10px;
 }
+.form1 button:hover {
+  background-color: #A0522D; /* Slightly lighter brown for hover effect */
+}
 
 .errorLabel {
   color: red;
@@ -55,7 +58,9 @@
 }
 
 .title {
-  text-align: center;
-  color: #472C1B;
-  margin-bottom: 20px; /* Add space below the title */
+    text-align: center;
+    color: #5D4037;
+    margin-bottom: 20px; /* Add space below the title */
+    font-family: 'Merriweather', serif;
+    font-size: 50px;
 }

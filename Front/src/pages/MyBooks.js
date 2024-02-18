@@ -46,7 +46,7 @@ function Mybooks(){
         <>
         <Header/>
         <div className="page">
-          <h1 className="mybookHeader" >MES LIVRES:</h1>
+          <h1 className="mybookHeader" >Mes Livres:</h1>
           <div className="Bookcontainer">
           <div className="books-container">
                   {currentBooks.map((book) => (
