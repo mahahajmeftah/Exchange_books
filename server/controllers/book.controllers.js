@@ -72,7 +72,7 @@ const newBook = async (req, res) => {
       
       await bookData.save()
       return res.status(200).json({
-        message: "Successfully signed up!"
+        message: "success"
       })
     } catch (err) {
       return res.status(400).json({
