@@ -11,7 +11,7 @@ router.route('/api/books')
  router.route('/api/books/:bookId')
     .get(bookCtrl.getBookById);
 
-    router.route('/api/newbook')
+router.route('/api/newbook')
     .post(bookCtrl.newBook);
 
 

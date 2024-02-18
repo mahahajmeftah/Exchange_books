@@ -69,25 +69,27 @@ const getBookById = async (req, res) => {
   
 
 const newBook = async (req, res) => {
-    const title = req.body.title;
-    const author = req.body.author;
-    const genre = req.body.genre;
-    const category = req.body.category;
-    const owner = req.body.owner;
-    const format = req.body.format;
-    const data = req.body.image.data;
-    const contentType = req.body.image.contentType;
+  const title = req.body.title;
+  const author = req.body.author;
+  const genre = req.body.genre;
+  const category = req.body.category;
+  const owner = req.body.owner;
+  const format = req.body.format;
+  const data = req.body.image.data;
+  const contentType = req.body.image.contentType;
+  const image = {data, contentType};
+  const description = req.body.description;
 
-    const bookData = new Book({
-        title:title,
-        author:author,
-        genre:genre,
-        category:category,
-        owner:owner,
-        format:format,
-        data : data,
-        contentType : contentType,
-    })
+  const bookData = new Book({
+      title:title,
+      author:author,
+      genre:genre,
+      category:category,
+      owner:owner,
+      format:format,
+      image,
+      description
+  })
     
     try {
       
