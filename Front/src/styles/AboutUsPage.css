@@ -49,6 +49,17 @@ p {
     color: white;
 }
 
+.personne{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.personne > a {
+    margin-left: 5px;
+}
+
 /* Media queries for responsiveness */
 @media (max-width: 768px) {
     .about-description {
