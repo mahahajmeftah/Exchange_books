@@ -104,6 +104,25 @@ const newBook = async (req, res) => {
     }
 };
 
+const deleteBook = async (req, res) => {
+  try {
+    const userId = req.body.userId;
+    const bookId = req.params.bookId;
+    const query = {
+      _id : bookId,
+      owner: userId
+    };
+    const book = await Book.findOneAndDelete(query);
+    if(!book){
+      return res.status(404).json({ error: 'Book Not Found for specified User' })
+    }
+    res.json({ msg: "success", book})
+  }catch(err){
+    console.error('Error');
+    return res.status(500).json({ error: 'An unexpected error occurred' });
+  }
+}
+
 
 const listByOwner = async (req, res) => {
     try {

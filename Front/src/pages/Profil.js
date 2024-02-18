@@ -65,7 +65,12 @@ const Profil = ({ utilisateur, livres }) => {
                 <div className='user-container'>
                 <div className='userInfo-container'>
                         <form onSubmit={handleSubmit} className="form">
-                            <h2>Profil</h2>
+                            <div className='top'>
+                                <h2>Profil</h2>
+                                <Link to ="/addBook">
+                                    <button>Ajouter un livre</button>
+                                </Link>
+                            </div>
                             <p>Nom :</p>
                             <input type="text" value={name} onChange={(e) => setName(e.target.value)}/>
                             <br/>
@@ -75,15 +80,8 @@ const Profil = ({ utilisateur, livres }) => {
                             <p>Numéro de telephone :</p>
                             <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)}/>
                             <p/>
-                            <button>Mettre à jour </button>
+                            <button>Mettre à jour</button>
                         </form>
-                    </div>
-                    <div className='addBook'>
-                        <h2>Ajouter un livre</h2>
-                        <Link to ="/addBook">
-                        {/*<a href="https://www.flaticon.com/fr/icones-gratuites/plus" title="plus icônes">Plus icônes créées par kliwir art - Flaticon</a>*/}
-                        <img src={plus} alt="image plus pour ajouter" style={{ width: '150px', height: '150px' }}/>
-                        </Link>
                     </div>
                 </div>
                 

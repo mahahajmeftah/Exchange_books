@@ -7,3 +7,14 @@
     cursor: pointer ;
     
     }
+.page{
+    display : flex;
+    flex-direction: column;
+}
+
+.mybookHeader{
+    align-self: center;
+    margin-top: 0; /* Remove default margin from h1 */
+    color: #555555;
+    font-family: 'Arial', sans-serif;
+}

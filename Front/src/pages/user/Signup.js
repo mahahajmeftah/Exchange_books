@@ -90,42 +90,6 @@ function Signup() {
         console.log("Le formulaire n'est pas valide, ne pas envoyer les données vers le back-end.");
         return;
       }
-    
-      /*setEmailError("")
-      setPasswordError("")
-		  setPhoneError("")
-		
-		// checking if email is empty
-		if (values.email === "") {
-            setEmailError("Veuillez entrer une adresse email")
-            return
-        }
-
-		if (values.name === "") {
-            setNameError("Veuillez entrez votre prénom")
-            return
-        }
-
-		if (values.phone === "") {
-            setPhoneError("Veuillez entrez votre numéro de téléphone")
-            return
-        }
-
-    if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(values.email)) {
-          setEmailError("Veuillez entrer une adresse email valide")
-          return
-    }
-    
-    if (!frenchPhoneNumberRegex.test(values.phone)) {
-      setPhoneError("Veuillez entrer un numéro de téléphone valide contenant 10 chiffres")
-      return
-    }
-        
-        // checking if password is empty
-    if (values.password === "") {
-      setPasswordError("Please enter a password")
-      return
-    }*/
 
 
       const user = {
@@ -148,9 +112,9 @@ function Signup() {
           <div className='loginBackground'>
           <div className="loginPageContainer">
             <div className="loginContainer">
-          <h1 className="loginTitle">Sign Up</h1>
+          <h1 className="loginTitle">S'inscrire</h1>
           <div className="inputGroup">
-          <input type="name" value={values.name} onChange={handleChange('name')} placeholder="Name" className="loginInput"/>
+          <input type="name" value={values.name} onChange={handleChange('name')} placeholder="Prénom" className="loginInput"/>
           <label className="errorLabel">{nameError}</label>
           </div>
           <div className="inputGroup">
@@ -158,26 +122,25 @@ function Signup() {
           <label className="errorLabel">{emailError}</label>
           </div>
           <div className="inputGroup">
-          <input type="phone" value={values.phone} onChange={handleChange('phone')} placeholder="Phone" className="loginInput"/>
+          <input type="phone" value={values.phone} onChange={handleChange('phone')} placeholder="Téléphone" className="loginInput"/>
           <label className="errorLabel">{phoneError}</label>
           </div>
           <div className="inputGroup">
-          <input type="password" value={values.password} onChange={handleChange('password')} placeholder="Password" className="loginInput"/>
+          <input type="password" value={values.password} onChange={handleChange('password')} placeholder="Mot de passe" className="loginInput"/>
           <label className="errorLabel">{passwordError}</label>
           </div>
-          <button className="signInButton" onClick={clickSubmit}>Signup</button>
-          <a href="#" className="forgotPassword">have account allready ?</a>
+          <button className="signInButton" onClick={clickSubmit}>S'inscrire</button>
                             <p className="signupPrompt">
-                                New to BookBuddy? <a href="/login" className="signupLink">Login</a>
+                                Vous avez déjà un compte? <a href="/login" className="signupLink">Se connecter</a>
                             </p>
           {/* This will be full width at the bottom */}
           </div>
           <dialog open={values.open} >
-            <h2 style={{fontSize:'22px'}}>New account</h2>
-            <p style={{color:'#ccc',fontSize:'16px'}}>New account successfully created!</p>
+            <h2 style={{fontSize:'22px'}}>Nouveau compte</h2>
+            <p style={{color:'#ccc',fontSize:'16px'}}>Vous êtes inscrit!</p>
             <menu>
             
-                <a href="/login" className='dialogButton '>Login</a>
+                <a href="/login" className='dialogButton '>Se connecter</a>
             
             </menu>
           </dialog>

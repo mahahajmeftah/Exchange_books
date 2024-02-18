@@ -17,30 +17,7 @@ const Inventory = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
     const [booksPerPage] = useState(10);
-    /*const genres = [
-        'all',
-        'Literary Fiction',
-        'Mystery',
-        'Thriller',
-        'Science Fiction',
-        'Fantasy',
-        'Romance',
-        'Historical Fiction',
-        'Horror',
-        'Young Adult (YA)',
-        'Children\'s',
-        'Biographies & Autobiographies',
-        'Memoirs',
-        'History',
-        'Science',
-        'Self-Help',
-        'Travel',
-        'True Crime',
-        'Essays',
-        'Cookbooks',
-        'Health & Fitness'
-    ];*/
-
+    
     useEffect(() => {
         const fetchBooks = async () => {
             try {

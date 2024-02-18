@@ -64,7 +64,7 @@ if (redirectToReferrer) {
       <div className='loginBackground'>
         <div className="loginPageContainer">
           <div className="loginContainer">
-            <h1 className="loginTitle">Welcome to BookBuddy</h1>
+            <h1 className="loginTitle">Bienvenue sur BookBuddy</h1>
 
             <div className="inputGroup">
               <input
@@ -84,10 +84,10 @@ if (redirectToReferrer) {
               className="loginInput"
               />  
             </div>
-            <button className="signInButton" onClick={clickSubmit}>SIGN IN</button>
-            <a href="#" className="forgotPassword">Forgot password?</a>
+            <button className="signInButton" onClick={clickSubmit}>SE CONNECTER</button>
+            <a href="#" className="forgotPassword">Mot de passe oublié?</a>
             <p className="signupPrompt">
-              New to BookBuddy? <a href="/signup" className="signupLink">Create Account</a> 
+              Nouveau sur BookBuddy? <a href="/signup" className="signupLink">S'inscrire</a> 
             </p>
             {/* This will be full width at the bottom */}
           </div>
