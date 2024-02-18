@@ -84,7 +84,7 @@ const Inventory = () => {
         <div className="inventory">
             <Header />
             <div className="title-container">
-                <h1 className="page-title">Mes Livres</h1>
+                <h1 className="page-title">Livres</h1>
             </div>
             <div className="controls">
                 <div className="search-container">
