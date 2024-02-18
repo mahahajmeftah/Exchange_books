@@ -5,6 +5,7 @@ import Header from './Header';
 
 const Book_myBooks = ({ book}) => {
 
+  console.log("book", book);
     
     const base64String= String.fromCharCode(...new Uint8Array(book.image.data.data));
     const contentType = book.image.contentType;

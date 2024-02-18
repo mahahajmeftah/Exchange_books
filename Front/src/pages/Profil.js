@@ -87,8 +87,7 @@ const Profil = ({ utilisateur, livres }) => {
                     </div>
                 </div>
                 
-              {
-                <>
+               {/*  
               <div className="books-container">
               <h2>Votre liste de livres :</h2>
                 {books.map((book) => (
@@ -99,7 +98,7 @@ const Profil = ({ utilisateur, livres }) => {
                 <h2>Ajouter un livre</h2>
                 <AjoutLivreForm />
                 </>
-                }
+                }*/}
                 <Footer />
             </div>
               
