@@ -72,10 +72,10 @@ const Profil = ({ utilisateur, livres }) => {
                             <p>Email :</p>
                             <input type="text" value={email} onChange={(e) => setEmail(e.target.value)}/>
                             <br/>
-                            <p>Numero de telephone :</p>
+                            <p>Numéro de telephone :</p>
                             <input type="text" value={phone} onChange={(e) => setPhone(e.target.value)}/>
                             <p/>
-                            <button>Mettre a jour </button>
+                            <button>Mettre à jour </button>
                         </form>
                     </div>
                     <div className='addBook'>

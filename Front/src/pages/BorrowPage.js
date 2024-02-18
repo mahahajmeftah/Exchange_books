@@ -48,7 +48,7 @@ const BorrowPage = () => {
                     <div className="book-description-container">
                         <strong>Description:</strong>
                          <p className="book-description">{book.description}</p>
-                         <button onClick={() => fetchOwnerDetails(book.owner)} className="contact-owner-button">Contact Owner</button>
+                         <button onClick={() => fetchOwnerDetails(book.owner)} className="contact-owner-button">Contacter le propriétaire</button>
                     </div>
                 </div>
             </div>
@@ -56,9 +56,9 @@ const BorrowPage = () => {
     <div className="contact-modalb" onClick={closeContactModal}> {/* This will close the modal if you click outside the content */}
         <div className="contact-modal-content" onClick={(e) => e.stopPropagation()}> {/* This prevents clicks inside the modal from closing it */}
             <span className="close-modal" onClick={closeContactModal}>&times;</span>
-            <h3>Owner Contact Details</h3>
+            <h3>Contact du propriétaire</h3>
             <p>Email: {ownerDetails.email}</p>
-            <p>Phone: {ownerDetails.phone}</p>
+            <p>Téléphone: {ownerDetails.phone}</p>
             <a href="#" onClick={handleCloseModalClick} className="retour-link">Retour</a> {/* Your link to close the modal */}
         </div>
     </div>

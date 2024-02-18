@@ -17,20 +17,20 @@ const NavBar = (props) => {
 	return (
 	<nav className="navigation">
 		<ul>
-			<li><Link to="/">HOME</Link></li>
-            <li><Link to="/about">ABOUT US</Link></li>
-			<li><Link to="/inventory">INVENTORY</Link></li>
+			<li><Link to="/">ACCUEIL</Link></li>
+            <li><Link to="/about">A PROPOS</Link></li>
+			<li><Link to="/inventory">BIBLIOTHEQUE</Link></li>
 			<div className="auth-links">
 			{(name != undefined ? 
 			<>
-				<li><Link to="/profil">PROFIL</Link></li>
-				<li><Link to="/mybooks/:userId">MyBooks</Link></li>
-				<li><Link to="/" className="button-link">Welcome {name} To BookBuddy</Link></li>
-				<li><button onClick={() => { auth.clearJWT(() => navigate('/')) }}>Sign Out</button></li>
+				{/* <li><Link to="/profil">PROFIL</Link></li> */}
+				<li><Link to="/mybooks/:userId">MES LIVRES</Link></li>
+				<li><Link to="/profil" className="button-link">Bienvenue {name}</Link></li>
+				<li><button onClick={() => { auth.clearJWT(() => navigate('/')) }}>Se déconnecter</button></li>
 			</>	
 				:
 				<>
-				<li><Link to="/login"className="button-link">SIGN IN </Link></li>
+				<li><Link to="/login"className="button-link">SE CONNECTER</Link></li>
 				</>	
 			)}
 			</div>

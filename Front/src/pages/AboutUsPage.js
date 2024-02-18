@@ -23,19 +23,19 @@ const AboutPage = () => {
           <p>
             Le projet BookBuddy a été créé par une équipe de trois étudiantes de Polytech Angers :
           </p><br/>
-            <div>
+            <div className='personne'>
               <strong>Faustine Guillou</strong> 
               <a href="https://www.linkedin.com/in/faustine-guillou" 
               target="_blank" rel="noopener noreferrer">
               <img src={logoLinkedin} alt="Logo Linkedin" style={{ width: '20px', height: '20px' }}/>
               </a><br/></div>
-            <div>
+            <div className='personne'>
               <strong>Aya Rhoumdane</strong><a href="https://www.linkedin.com/in/aya-rhoumdane/" 
               target="_blank" rel="noopener noreferrer">
               <img src={logoLinkedin} alt="Logo Linkedin" style={{ width: '20px', height: '20px' }}/>
               </a><br/>
             </div>
-            <div>
+            <div className='personne'>
               <strong>Maha Hadj Meftah</strong><a href="https://www.linkedin.com/in/maha-haj-meftah-02a0b5132?trk=contact-info" 
               target="_blank" rel="noopener noreferrer">
               <img src={logoLinkedin} alt="Logo Linkedin" style={{ width: '20px', height: '20px' }}/>

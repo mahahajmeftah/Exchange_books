@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/WelcomePage.css'; // Make sure to create this CSS file and import it
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const WelcomePage = (props) => {
     const { loggedIn, email } = props	
@@ -23,8 +23,10 @@ const WelcomePage = (props) => {
       <Header />
       <div className="section welcome-section">
         <div className="welcome-content">
-          <h1>Welcome to BookBuddy</h1>
-          <p className="description">BookBuddy is a dynamic book-sharing platform where users can upload, exchange, and discuss their favorite books. It allows users to upload books in PDF or physical formats, set locations for easy exchanges, create book forums, and engage in a vibrant community-driven space with reviews, ratings, and direct messaging.</p>
+          <h1>Bienvenue sur BookBuddy</h1>
+          <p className="description">BookBuddy est une plateforme dynamique de partage de livres où les 
+          utilisateurs peuvent échanger leurs livres. Vous pourrez y retrouver les livres disponibles et 
+          contacter leur propriétaire pour emprunter le livre.</p>
           {(name != undefined ? 
           <>
             
@@ -32,8 +34,8 @@ const WelcomePage = (props) => {
             :
             <>
             <div className="buttons">
-              <button className="login-button" onClick={onLoginClick} >SIGN IN</button>
-              <button className="signup-button"onClick={onSignUpClick} >SIGN Up</button>
+              <button className="login-button" onClick={onLoginClick} >SE CONNECTER</button>
+              <button className="signup-button"onClick={onSignUpClick} >S'INSCRIRE</button>
           </div>
             </>	
           )}
@@ -43,9 +45,11 @@ const WelcomePage = (props) => {
       <div className="about-section">
         <div className="about-content">
           <div className="about-text">
-            <h2>About Us</h2>
-            <p>The BookBuddy is an independent community sharing a love for books...</p>
-            <button className="about-button">Find Your Book</button>
+            <h2>A propos</h2>
+            <p>BookBuddy est une communauté indépendante partageant une passion pour les livres.</p>
+            <Link to="/inventory">
+              <button className="about-button">Trouver un livre</button>
+            </Link>
           </div>
           <div className="about-image">
             <img src={require("../assets/logo.png")} alt="test1" />

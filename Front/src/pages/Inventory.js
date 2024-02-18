@@ -8,6 +8,7 @@ import SearchBar from '../components/SearchBar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+import genres from '../datas/genreList.js';
 
 
 const Inventory = () => {
@@ -16,7 +17,7 @@ const Inventory = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
     const [booksPerPage] = useState(10);
-    const genres = [
+    /*const genres = [
         'all',
         'Literary Fiction',
         'Mystery',
@@ -38,7 +39,7 @@ const Inventory = () => {
         'Essays',
         'Cookbooks',
         'Health & Fitness'
-    ];
+    ];*/
 
     useEffect(() => {
         const fetchBooks = async () => {
