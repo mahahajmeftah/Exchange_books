@@ -158,7 +158,8 @@ const AddBook = () => {
                 Catégorie:
                 <select value={category} onChange={(e) => setCategory(e.target.value)} className="select">
                 <option value="Roman">Roman</option>
-                <option value="Mystère">Mystère</option>
+                <option value="Mystère">Manga</option>
+                <option value="Mystère">BD</option>
                 {/* Ajoutez d'autres options de catégorie au besoin */}
                 </select>
             </label>
