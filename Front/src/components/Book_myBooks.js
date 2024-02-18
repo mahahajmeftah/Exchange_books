@@ -16,8 +16,8 @@ const Book_myBooks = ({ book}) => {
         <img src={`data:${contentType};base64,${base64String}`} alt={book.title} className="book-image"/>
         <div className="mybook-info">
           <h3 className="mybook-title">{book.title}</h3>
-          <p className=" author ">{book.author}</p>
-          <p className=" genre ">{book.genre}</p>
+          <p className="author">{book.author}</p>
+          <p className="genre">{book.genre}</p>
         </div>
       </div>
       

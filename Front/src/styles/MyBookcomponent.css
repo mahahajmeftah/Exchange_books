@@ -34,6 +34,10 @@
   
   .mybook .info {
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   
   .mybook-title {
@@ -55,9 +59,8 @@
   }
 
   .genre {
-    display: inline-block;
     padding: 5px 5px;
-    border-radius: 30%;
+    border-radius: 50%;
     background: #D1D1D3;
     color: #333;
     font-size: 12px;
@@ -66,9 +69,8 @@
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
-    position: absolute;
-    margin-bottom: 4px;
-    margin-left: 50px;
+    margin : 8px;
+    width : auto;
     }
     .mybookHeader{
         font-size: 22px;
