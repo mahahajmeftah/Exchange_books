@@ -26,7 +26,7 @@ const NavBar = (props) => {
 				{/* <li><Link to="/profil">PROFIL</Link></li> */}
 				<li><Link to="/mybooks/:userId">MES LIVRES</Link></li>
 				<li><Link to="/profil" className="button-link">Bienvenue {name}</Link></li>
-				<li><button onClick={() => { auth.clearJWT(() => navigate('/')) }}>Se déconnecter</button></li>
+				<li><button className="button-link" onClick={() => { auth.clearJWT(() => navigate('/')) }}>Se déconnecter</button></li>
 			</>	
 				:
 				<>
