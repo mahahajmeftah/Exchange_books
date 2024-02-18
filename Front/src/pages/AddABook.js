@@ -138,8 +138,8 @@ const AddBook = () => {
     <div className='addBook-page'>
         <Header />
         <div className='content'>
-            <h1 className='title'>Ajouter un livre</h1>
-            <form onSubmit={handleSubmit} className="form">
+            <form onSubmit={handleSubmit} className="form1">
+            <h2 className='title'>Ajouter un livre</h2>
             <label className="label">
                 Nom du livre:
                 <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} className="input"/>
@@ -193,7 +193,7 @@ const AddBook = () => {
 
             <label className="label labelinput">
                 Image:
-                <input type="file" onChange={handleImageChange} accept="image/*" className="button"/>
+                <input type="file" onChange={handleImageChange} accept="image/*" className="button1"/>
             </label>
             <label className="errorLabel">{imageError}</label>
 

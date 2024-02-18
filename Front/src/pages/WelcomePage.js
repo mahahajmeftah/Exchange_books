@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/WelcomePage.css'; // Make sure to create this CSS file and import it
 import Footer from '../components/Footer';
 import Header from '../components/Header';
@@ -18,6 +18,24 @@ const WelcomePage = (props) => {
     if(jwt != undefined){
       name = jwt.user.name;
     }
+
+    const images = [require(
+      "../assets/angerbibli.png"),
+      require("../assets/anger.png"),
+      require("../assets/background-pic.jpeg"),
+      require("../assets/bibli1.png")
+      // Add more images as needed
+  ];
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex((currentIndex) => (currentIndex + 1) % images.length);
+        }, 3000); // Change image every 3 seconds
+
+        return () => clearInterval(interval); // Clean up the interval on component unmount
+    }, [images.length]);
+
   return (
     <div className="welcome-page">
       <Header />
@@ -51,8 +69,10 @@ const WelcomePage = (props) => {
               <button className="about-button">Trouver un livre</button>
             </Link>
           </div>
-          <div className="about-image">
-            <img src={require("../assets/angerbibli.png")} alt="test1" />
+          <div className="image-gallery">
+              <div className="about-image">
+                  <img src={images[currentIndex]} alt={`Display ${currentIndex + 1}`} />
+              </div>
           </div>
         </div>
       </div>
