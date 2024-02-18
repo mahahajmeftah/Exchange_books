@@ -92,7 +92,6 @@ const AddBook = () => {
 
     // Log in a user using email and password
     const addNewBook = async () => {
-		console.log("addbook");
         await fetchImage();
         const owner= sessionStorage.getItem('userId');
         console.log("addbook 1", {title, author, genre, category, owner, format, image: { data, contentType }});
@@ -106,10 +105,11 @@ const AddBook = () => {
         })
         .then(r => r.json())
         .then(r => {
+            console.log(r.message);
             if ('success' === r.message) {
-				window.alert("sucess")
+				window.alert("Votre livre a été ajouté")
             } else {
-                window.alert("error signup")
+                window.alert("Erreur pendant l'ajout du livre")
             }
         })
     }

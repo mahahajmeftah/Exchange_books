@@ -52,5 +52,17 @@ const list = async (req, res) => {
         return res.status(400).json({ error: "Could not retrieve user" });
     }
 };
+
+const updateUserDetails = async (req, res) => {
+  try{
+    const user = await User.findOneAndUpdate({ _id: req.params.userId}, req.body).select("name email phone");
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+    res.json(user);
+  }catch(err){
+    return res.status(401).json({ error: "Could not retrieve User" });
+  }
+};
   // Export this function
-  export default { list, create, getUserDetails };
+  export default { list, create, getUserDetails,updateUserDetails };

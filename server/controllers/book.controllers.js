@@ -21,7 +21,9 @@ const listBooks = async (req, res) => {
         }
 
         // Use the query object to filter books in the database
-        let books = await Book.find(query).select('title author owner _id name genre image');
+
+        let books = await Book.find(query).select('title author owner _id name genre image description');
+
 
         res.json(books);
     } catch (err) {
@@ -46,6 +48,25 @@ const getBookImage = async (req, res) => {
         });
     }
 };
+// Controller function to get a single book by ID with owner details
+const getBookById = async (req, res) => {
+    try {
+      const book = await Book.findById(req.params.bookId)
+        .populate('owner')
+        .exec();
+  
+      if (!book) {
+        return res.status(404).json({ message: "Book not found" });
+      }
+      res.json(book);
+  
+    } catch (err) {
+      res.status(500).json({
+        error: errorHandler.getErrorMessage(err)
+      });
+    }
+  };
+  
 
 const newBook = async (req, res) => {
     const title = req.body.title;
@@ -72,7 +93,7 @@ const newBook = async (req, res) => {
       
       await bookData.save()
       return res.status(200).json({
-        message: "Successfully signed up!"
+        message: "success"
       })
     } catch (err) {
       return res.status(400).json({
@@ -80,6 +101,7 @@ const newBook = async (req, res) => {
       })
     }
 };
+
 
 const listByOwner = async (req, res) => {
     try {
@@ -94,12 +116,12 @@ const listByOwner = async (req, res) => {
       return res.status(500).json({ error: 'An unexpected error occurred' });
     }
   };
-   
-        
+
 
 export default {
     listBooks,
     getBookImage,
     listByOwner,
-    newBook // Export the new controller function
+    newBook,
+    getBookById // Export the new controller function
 };
