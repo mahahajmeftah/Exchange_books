@@ -11,8 +11,8 @@
   }
   
   .mybook {
-    width: 200px;
-    height: 320px;
+    width: 250px;
+    height: 380px;
     margin: 10px;
     padding-bottom: 10px;
     /*border: 1px solid #ccc;*/
@@ -80,3 +80,16 @@
 
 
     }
+
+    .delete-button {
+      padding: 12px 30px;
+      border: none;
+      border-radius: 50px; /* Use a large value for border-radius to make it round */
+      cursor: pointer;
+      font-size: 1em;
+      margin: 0 10px;
+      background-color: #D2B48C; /* Light brown background */
+      color: #fff; /* White text */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+  }
