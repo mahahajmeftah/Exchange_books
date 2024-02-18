@@ -10,6 +10,7 @@ import Signup from './pages/user/Signup';
 import Inventory from './pages/Inventory';
 import Profil from './pages/Profil';
 import AddBook from './pages/AddABook'
+import Mybooks from './pages/MyBooks';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false); // Assuming default state is not logged in
@@ -27,6 +28,7 @@ function App() {
     <Route path="/Signup" element={<Signup/>}/>
     <Route path="/profil" element={<Profil/>}/>
     <Route path="/addbook" element={<AddBook/>}/>
+    <Route path="/mybooks/:userId" element={<Mybooks/>}/>
 
         {/* Add other routes as necessary */}
       </Routes>
