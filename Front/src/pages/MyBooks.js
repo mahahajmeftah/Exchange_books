@@ -37,7 +37,7 @@ function Mybooks(){
       return (
         <>
         <Header/>
-        <h2 className="mybookHeader" >Your books:</h2>
+        <h2 className="mybookHeader" >Mes livres:</h2>
         <div className="Bookcontainer">
         <div className="books-container">
                 {books.map((book) => (
