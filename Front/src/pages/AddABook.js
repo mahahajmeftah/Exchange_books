@@ -117,6 +117,15 @@ const AddBook = () => {
                 window.alert("Erreur pendant l'ajout du livre")
             }
         })
+
+        setTitle('');
+        setAuthor('');
+        setGenre('Fiction littéraire');
+        setCategory('Roman');
+        setFormat('Broché');
+        setImageError("");
+        setImage('');
+        setDescription('');
     }
   
 
@@ -158,8 +167,8 @@ const AddBook = () => {
                 Catégorie:
                 <select value={category} onChange={(e) => setCategory(e.target.value)} className="select">
                 <option value="Roman">Roman</option>
-                <option value="Mystère">Manga</option>
-                <option value="Mystère">BD</option>
+                <option value="Manga">Manga</option>
+                <option value="BD">BD</option>
                 {/* Ajoutez d'autres options de catégorie au besoin */}
                 </select>
             </label>
@@ -169,6 +178,7 @@ const AddBook = () => {
                 <select value={format} onChange={(e) => setFormat(e.target.value)} className="select">
                 <option value="Broché">Broché</option>
                 <option value="Relié">Relié</option>
+                <option value="Poche">Poche</option>
                 {/* Ajoutez d'autres options de format au besoin */}
                 </select>
             </label>

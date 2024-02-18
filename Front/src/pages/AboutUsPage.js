@@ -14,7 +14,9 @@ const AboutPage = () => {
         <div className="about-description">
           <h2>À Propos</h2>
           <p>BookBuddy est une communauté indépendante partageant un amour pour les livres. Nous offrons une plateforme pour emprunter des livres auprès d'autres utilisateurs dans la ville d'Angers.</p>
-          <button className="find-book-button">Trouvez Votre Livre</button>
+          <Link to="/inventory">
+        <button className="about-button">Trouver un livre</button>
+      </Link>
         </div>
 
         {/* Section pour les Créatrices et le Contexte du Projet */}
