@@ -144,5 +144,6 @@ export default {
     getBookImage,
     listByOwner,
     newBook,
+    deleteBook,
     getBookById // Export the new controller function
 };
