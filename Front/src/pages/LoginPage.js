@@ -71,7 +71,7 @@ if (redirectToReferrer) {
               type="email"
               value={values.email}
               onChange={handleChange('email')}
-              placeholder="user"
+              placeholder="Adresse Email"
               className="loginInput"
               />
             </div>
@@ -80,7 +80,7 @@ if (redirectToReferrer) {
               type="password"
               value={values.password}
               onChange={handleChange('password')}
-              placeholder="Password"
+              placeholder="Mot de passe"
               className="loginInput"
               />  
             </div>
