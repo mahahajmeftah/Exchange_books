@@ -1,3 +1,75 @@
-.profil-page{
-    background-color: #f8f8f8;
+/* Profile Page Styles */
+.profil-page {
+    background-color: #fafafa; /* Light background for the page */
+    color: #333; /* Primary text color */
+    font-family: 'Merriweather', serif; /* A font often associated with books */
+    min-height: 100vh; /* Full height of the viewport */
 }
+
+.user-container {
+    display: flex;
+    justify-content: center; /* Center the containers horizontally */
+    padding: 40px 20px; /* Top and bottom padding */
+    gap: 30px; /* Space between the form and add book */
+}
+
+.userInfo-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    width: 40%; /* Width of the form container */
+    max-width: 500px; /* Maximum width of the form container */
+}
+
+.form h2 {
+    margin-bottom: 20px; /* Space below the heading */
+    color: #5D4037; /* Dark brown color for the titles */
+}
+
+.form p {
+    margin-bottom: 10px; /* Space above the input fields */
+}
+
+.form input {
+    width: calc(100% - 20px); /* Full width with padding considered */
+    padding: 10px; /* Padding inside the inputs */
+    margin-bottom: 20px; /* Space below the inputs */
+    border: 1px solid #ddd; /* Subtle border for the inputs */
+    border-radius: 5px; /* Slightly rounded corners for the inputs */
+}
+
+.form button {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px; /* Use a large value for border-radius to make it round */
+    cursor: pointer;
+    font-size: 1em;
+    margin: 0 10px;
+    background-color: #D2B48C; /* Light brown background */
+    color: #fff; /* White text */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.form button:hover {
+    background-color: #A0522D; /* Slightly lighter brown for hover effect */
+}
+
+.addBook {
+    text-align: center; /* Center the add book content */
+    width: 40%; /* Width of the add book container */
+    max-width: 500px; /* Maximum width of the add book container */
+}
+
+.addBook h2 {
+    color: #5D4037; /* Dark brown color for the title */
+    margin-bottom: 20px; /* Space below the title */
+}
+
+/* Link styling if needed */
+a {
+    text-decoration: none; /* Removes underline from links */
+    color: inherit; /* Inherits the color from the parent element */
+}
+

@@ -36,6 +36,7 @@ import {login} from '../datas/auth/auth-api.js'
       if (data.error) {
         setValues({ ...values, error: data.error });
       } else {
+        sessionStorage.setItem('userId', data.user._id);
         auth.authenticate(data, () => {
           setValues({ ...values, error: '', redirectToReferrer: true });
         });

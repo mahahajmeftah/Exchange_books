@@ -70,5 +70,3 @@ UserSchema.methods = {
 }
 
 export default mongoose.model('User', UserSchema)
-
-
