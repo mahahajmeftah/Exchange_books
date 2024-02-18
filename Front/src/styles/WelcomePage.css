@@ -45,13 +45,13 @@ h1 {
 }
 .description {
     font-size: 1.5em; /* Adjust the font size for the description */
-    color: #666; /* Lighter font color */
+    color: #ccc; /* Lighter font color */
     transition: color 0.3s ease; /* Smooth transition for color change */
 }
 
-    .description:hover {
-        color: #ccc ; /* Darker font color on hover */
-    }
+   /* .description:hover {
+        color: #ccc ; /* Darker font color on hover 
+    }*/
 
 .buttons {
     margin-top: 20px;

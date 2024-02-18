@@ -22,7 +22,7 @@ const Book = ({ book }) => {
         <div className="book-info">
           <h3 className="book-title">{book.title}</h3>
           <p className="book-category">{book.genre}</p>
-          <button className="borrow-button" onClick={handleBorrow}>Borrow</button>
+          <button className="borrow-button" onClick={handleBorrow}>Emprunter</button>
         </div>
       </div>
     );
