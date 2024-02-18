@@ -82,6 +82,9 @@ const Inventory = () => {
     return (
         <div className="inventory">
             <Header />
+            <div className="title-container">
+                <h1 className="page-title">Mes Livres</h1>
+            </div>
             <div className="controls">
                 <div className="search-container">
                     <SearchBar onSearch={handleSearch} />
@@ -103,28 +106,27 @@ const Inventory = () => {
                 ))}
             </div>
             <nav>
-    <ul className="pagination">
-        {Array.from({ length: Math.ceil(books.length / booksPerPage) }, (_, i) => i + 1).map(number => (
-            <li key={number} className="page-item">
-                <a 
-                    onClick={(e) => {
-                        e.preventDefault(); // Prevent the link from causing a page reload
-                        paginate(number);
-                    }} 
-                    href="#"
-                    className={`page-link ${currentPage === number ? 'page-link-active' : ''}`} // Apply active class conditionally
-                >
-                    {number}
-                </a>
-            </li>
-        ))}
-    </ul>
-</nav>
-
-
+                <ul className="pagination">
+                    {Array.from({ length: Math.ceil(books.length / booksPerPage) }, (_, i) => i + 1).map(number => (
+                        <li key={number} className="page-item">
+                            <a 
+                                onClick={(e) => {
+                                    e.preventDefault(); // Prevent the link from causing a page reload
+                                    paginate(number);
+                                }} 
+                                href="#"
+                                className={`page-link ${currentPage === number ? 'page-link-active' : ''}`} // Apply active class conditionally
+                            >
+                                {number}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </nav>
             <Footer />
         </div>
     );
+    
 };
 
 export default Inventory;
