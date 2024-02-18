@@ -20,11 +20,11 @@ const NavBar = (props) => {
 			<li><Link to="/">HOME</Link></li>
             <li><Link to="/about">ABOUT US</Link></li>
 			<li><Link to="/inventory">INVENTORY</Link></li>
-			<li><Link to="/mybooks/:userId">MyBooks</Link></li>
 			<div className="auth-links">
 			{(name != undefined ? 
 			<>
 				<li><Link to="/profil">Mon Profil</Link></li>
+				<li><Link to="/mybooks/:userId">MyBooks</Link></li>
 				<li><Link to="/" className="button-link">Welcome {name} To BookBuddy</Link></li>
 				<li><button onClick={() => { auth.clearJWT(() => navigate('/')) }}>Sign Out</button></li>
 			</>	
